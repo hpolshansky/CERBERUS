@@ -1,0 +1,6 @@
+/home/vargoal/CERBERUS/ZED_Node/install/_setup_util.py
+/home/vargoal/CERBERUS/ZED_Node/install/env.sh
+/home/vargoal/CERBERUS/ZED_Node/install/setup.bash
+/home/vargoal/CERBERUS/ZED_Node/install/setup.sh
+/home/vargoal/CERBERUS/ZED_Node/install/setup.zsh
+/home/vargoal/CERBERUS/ZED_Node/install/.rosinstall

@@ -7,4 +7,6 @@
 # new environment variables
 
 # modified environment variables
+export PKG_CONFIG_PATH="/opt/ros/kinetic/lib/pkgconfig"
 export PWD="/home/vargoal/CERBERUS/ZED_Node/build"
+export PYTHONPATH="/opt/ros/kinetic/lib/python2.7/dist-packages"
