@@ -1,0 +1,2 @@
+zed-ros-wrapper
+-DCATKIN_DEVEL_PREFIX=/home/vargoal/CERBERUS/ZED_Node/devel -DCMAKE_INSTALL_PREFIX=/home/vargoal/CERBERUS/ZED_Node/install -G Unix Makefiles
