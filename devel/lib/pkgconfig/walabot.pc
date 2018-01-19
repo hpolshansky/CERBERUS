@@ -1,0 +1,8 @@
+prefix=/home/vargoal/CERBERUS/devel
+
+Name: walabot
+Description: Description of walabot
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/vargoal/CERBERUS/devel/lib 
+Requires: 

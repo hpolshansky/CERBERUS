@@ -1,0 +1,10 @@
+float32 R_Min
+float32 R_Max
+float32 R_Res
+float32 Theta_Min
+float32 Theta_Max
+float32 Theta_Res
+float32 Phi_Min
+float32 Phi_Max
+float32 Phi_Res
+float32 Threshold
