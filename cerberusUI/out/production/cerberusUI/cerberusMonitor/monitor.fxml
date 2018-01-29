@@ -9,48 +9,43 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cerberusMonitor.monitorController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="420.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
-      <Text layoutX="148.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Camera" />
-      <Text layoutX="145.0" layoutY="274.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Front Camera" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="420.0" layoutX="434.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="552.0" />
-      <ImageView fitHeight="196.0" fitWidth="400.0" layoutX="39.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="420.0" layoutX="196.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+      <Text layoutX="216.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Camera" wrappingWidth="79.37890291213989" />
+      <Text layoutX="216.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Front Camera" wrappingWidth="79.37890291213989" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="161.0" layoutX="824.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
+      <ImageView fitHeight="258.0" fitWidth="422.0" layoutX="321.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/1stview.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="154.0" fitWidth="400.0" layoutX="14.0" layoutY="284.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="161.0" fitWidth="496.0" layoutX="296.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/frontview.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="420.0" fitWidth="415.0" layoutX="503.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="153.0" fitWidth="162.0" layoutX="829.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/map.png" />
          </image>
       </ImageView>
-      <Button layoutX="40.0" layoutY="458.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" styleClass="std_btn" text="Diagnose Issues">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="39.0" layoutY="537.0" mnemonicParsing="false" styleClass="std_btn" text="Retrieve Data" />
-      <Button layoutX="40.0" layoutY="617.0" mnemonicParsing="false" styleClass="std_btn" text="Retrieve Video" />
-      <Button layoutX="273.0" layoutY="505.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="130.0" style="-fx-background-color: red; -fx-color: white;" text="STOP">
+      <Button layoutX="6.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#getDevices" styleClass="std_btn" text="Retrieve Data" />
+      <Button layoutX="840.0" layoutY="242.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="130.0" style="-fx-background-color: red; -fx-color: white;" text="STOP">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c5e8" height="221.0" layoutX="432.0" layoutY="458.0" stroke="BLACK" strokeType="INSIDE" width="552.0" />
-      <Text layoutX="453.0" layoutY="481.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery Power" />
-      <Text layoutX="441.0" layoutY="623.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated Time Left" wrappingWidth="108.37890625" />
-      <Text layoutX="574.0" layoutY="634.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 min" wrappingWidth="79.37890625" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff343478" height="221.0" layoutX="661.0" layoutY="459.0" stroke="TRANSPARENT" strokeType="INSIDE" width="325.0" />
-      <Text layoutX="775.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warnings" />
-      <Line endX="450.0" layoutX="533.0" layoutY="491.0" startX="-100.0" />
-      <Text layoutX="667.0" layoutY="517.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No warnings to show" />
-      <Text layoutX="441.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery Life" wrappingWidth="118.37890625" />
-      <Text layoutX="575.0" layoutY="555.0" strokeType="OUTSIDE" strokeWidth="0.0" text="34%" wrappingWidth="79.37890625" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c5e8" height="196.0" layoutX="14.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="170.0" />
+      <Text layoutX="40.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery Power" />
+      <Text layoutX="23.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated Time Left" wrappingWidth="108.37890625" />
+      <Text layoutX="106.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 min" wrappingWidth="79.37890625" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff343478" height="105.0" layoutX="23.0" layoutY="446.0" stroke="TRANSPARENT" strokeType="INSIDE" width="958.0" />
+      <Text layoutX="473.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warnings" />
+      <Line endX="65.0" layoutX="120.0" layoutY="177.0" startX="-107.0" />
+      <Text layoutX="29.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No warnings to show" />
+      <Text layoutX="18.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery Life" wrappingWidth="118.37890625" />
+      <Text layoutX="131.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="34%" wrappingWidth="79.37890625" />
+      <Line endX="860.0" layoutX="121.0" layoutY="476.0" startX="-100.0" />
    </children>
 </Pane>

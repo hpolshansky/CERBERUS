@@ -10,7 +10,7 @@ Text {
 }
 
 .std_btn {
-    -fx-pref-width: 200px;
+    -fx-pref-width: 180px;
     -fx-pref-height: 60px;
     -fx-font: 20px System;
     -fx-color: blue;
