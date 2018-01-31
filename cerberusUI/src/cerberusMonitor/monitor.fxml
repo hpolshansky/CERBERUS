@@ -30,22 +30,23 @@
             <Image url="@../resources/map.png" />
          </image>
       </ImageView>
-      <Button layoutX="6.0" layoutY="367.0" mnemonicParsing="false" onMouseClicked="#getDevices" styleClass="std_btn" text="Retrieve Data" />
+      <Button layoutX="11.0" layoutY="337.0" mnemonicParsing="false" styleClass="std_btn" text="Retrieve Data" />
       <Button layoutX="840.0" layoutY="242.0" mnemonicParsing="false" prefHeight="125.0" prefWidth="130.0" style="-fx-background-color: red; -fx-color: white;" text="STOP">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c5e8" height="196.0" layoutX="14.0" layoutY="145.0" stroke="BLACK" strokeType="INSIDE" width="170.0" />
-      <Text layoutX="40.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery Power" />
-      <Text layoutX="23.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated Time Left" wrappingWidth="108.37890625" />
-      <Text layoutX="106.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 min" wrappingWidth="79.37890625" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a1c5e8" height="196.0" layoutX="16.0" layoutY="21.0" stroke="BLACK" strokeType="INSIDE" width="170.0" />
+      <Text layoutX="42.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery Power" />
+      <Text layoutX="25.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated Time Left" wrappingWidth="108.37890625" />
+      <Text layoutX="108.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50 min" wrappingWidth="79.37890625" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff343478" height="105.0" layoutX="23.0" layoutY="446.0" stroke="TRANSPARENT" strokeType="INSIDE" width="958.0" />
       <Text layoutX="473.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Warnings" />
-      <Line endX="65.0" layoutX="120.0" layoutY="177.0" startX="-107.0" />
+      <Line endX="65.0" layoutX="122.0" layoutY="53.0" startX="-107.0" />
       <Text layoutX="29.0" layoutY="504.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No warnings to show" />
-      <Text layoutX="18.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery Life" wrappingWidth="118.37890625" />
-      <Text layoutX="131.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="34%" wrappingWidth="79.37890625" />
+      <Text layoutX="20.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery Life" wrappingWidth="118.37890625" />
+      <Text layoutX="133.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="34%" wrappingWidth="79.37890625" />
       <Line endX="860.0" layoutX="121.0" layoutY="476.0" startX="-100.0" />
+      <Button layoutX="11.0" layoutY="255.0" mnemonicParsing="false" onMouseClicked="#getDevices" styleClass="std_btn" text="Teleoperation" />
    </children>
 </Pane>
