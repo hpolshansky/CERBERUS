@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import purejavahidapi.*;
-import java.util.List;
 
 public class Main extends Application {
 

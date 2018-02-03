@@ -1,106 +1,47 @@
 package cerberusMonitor;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import purejavahidapi.*;
 import java.util.List;
 
 public class monitorController {
-    volatile static boolean deviceOpen = false;
 
-    public void getDevices() {
+//    Initial Input: (** indicate selection effected)
+//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 00 80 01 F8
+//    00 00=l, FF FF=r; left roller pad
+//    onInputReport: id 0 len 14 data *00 80* FF 7F 00 80 FF 7F 00 80 00 80 01 F8
+//    00 00=u, FF FF=d; left roller pad
+//    onInputReport: id 0 len 14 data 00 80 *FF 7F* 00 80 FF 7F 00 80 00 80 01 F8
+//    00 00=l, FF FF=r; right roller pad
+//    onInputReport: id 0 len 14 data 00 80 FF 7F *00 80* FF 7F 00 80 00 80 01 F8
+//    00 00=u, FF FF=d; right roller pad
+//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 *FF 7F* 00 80 00 80 01 F8
+//    80 FF=LT, 80 00=RT
+//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F *00 80* 00 80 01 F8
+//    01=A, 02=B, 04=X, 08=Y
+//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 *00* 80 01 F8
+//    10=LB, 20=RB
+//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 *00* 80 01 F8
+//    40=back, 80=start
+//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 *00* 80 01 F8
+//    9C=l, 8C=r, 84=u, 94=d; small arrow pad
+//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 00 *80* 01 F8
 
-        // Finds devices to connect to
-//        try {
-//            List<HidDeviceInfo> devList = PureJavaHidApi.enumerateDevices();
-//            for (HidDeviceInfo info : devList) {
-//                System.out.printf("VID = 0x%04X PID = 0x%04X Manufacturer = %s Product = %s Path = %s\n", //
-//                        info.getVendorId(), //
-//                        info.getProductId(), //
-//                        info.getManufacturerString(), //
-//                        info.getProductString(), //
-//                        info.getPath());
-//
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-
-
-
-        // reads input from connected device
-        try {
-
-            while (true) {
-                // System.exit(0);
-                HidDeviceInfo devInfo = null;
-                if (!deviceOpen) {
-                    System.out.println("scanning");
-                    List<HidDeviceInfo> devList = PureJavaHidApi.enumerateDevices();
-                    for (HidDeviceInfo info : devList) {
-                        // if (info.getVendorId() == (short) 0x16C0 &&
-                        // info.getProductId() == (short) 0x05DF) {
-                        //if (info.getVendorId() == (short) 0x16C0 && info.getProductId() == (short) 0x0a99) {
-                        if (info.getVendorId() == (short) 0x1BAD && info.getProductId() == (short) 0xFA01) {
-                            devInfo = info;
-                            break;
-                        }
-                    }
-                    if (devInfo == null) {
-                        System.out.println("device not found");
-                        Thread.sleep(1000);
-                    } else {
-                        System.out.println("device found");
-                        if (true) {
-                            deviceOpen = true;
-                            final HidDevice dev = PureJavaHidApi.openDevice(devInfo);
-
-                            dev.setDeviceRemovalListener(new DeviceRemovalListener() {
-                                @Override
-                                public void onDeviceRemoval(HidDevice source) {
-                                    System.out.println("device removed");
-                                    deviceOpen = false;
-
-                                }
-                            });
-                            dev.setInputReportListener(new InputReportListener() {
-                                @Override
-                                public void onInputReport(HidDevice source, byte Id, byte[] data, int len) {
-                                    System.out.printf("onInputReport: id %d len %d data ", Id, len);
-                                    for (int i = 0; i < len; i++)
-                                        System.out.printf("%02X ", data[i]);
-                                    System.out.println();
-                                }
-                            });
-
-                            new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    while (true) {
-                                        byte[] data = new byte[132];
-                                        data[0] = 1;
-                                        int len = 0;
-                                        if (((len = dev.getFeatureReport(data, data.length)) >= 0)) {
-                                            int Id = data[0];
-                                            System.out.printf("getFeatureReport: id %d len %d data ", Id, len);
-                                            for (int i = 0; i < data.length; i++)
-                                                System.out.printf("%02X ", data[i]);
-                                            System.out.println();
-                                        }
-
-                                    }
-
-                                }
-                            }).start();
-
-                            Thread.sleep(2000);
-                            //dev.close();
-                            //deviceOpen = false;
-                        }
-                    }
-                }
-            }
-        } catch (Throwable e) {
-            e.printStackTrace();
-        }
-
+    public void pressed() {
+        System.out.println("PIZZA");
     }
+
+    public void control() throws Exception {
+        Stage newStage = new Stage();
+        Parent teleop = FXMLLoader.load(getClass().getResource("teleopScreen.fxml"));
+        newStage.setTitle("Teleoperation Screen");
+        Scene stageScene = new Scene(teleop, 300, 300);
+//        stageScene.getStylesheets().add("cerberusMonitor/style.css");
+        newStage.setScene(stageScene);
+        newStage.show();
+    }
+
 }
