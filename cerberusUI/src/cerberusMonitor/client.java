@@ -5,6 +5,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
+// modeled from: https://www.pegaxchange.com/2017/12/07/simple-tcp-ip-server-client-java/
 public class client implements Runnable {
     private Socket socket;
     private Scanner scanner;
@@ -26,6 +27,7 @@ public class client implements Runnable {
         try {
             System.out.println("\r\nConnected to: " + localClient.socket.getInetAddress());
 
+            // client actions
             while (true) {
                 input = scanner.nextLine();
                 PrintWriter out = new PrintWriter(this.socket.getOutputStream(), true);
