@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="cerberusServer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/cerberusServer_jar</output-path>
+    <root id="archive" name="cerberusServer.jar">
+      <element id="module-output" name="cerberusServer" />
+    </root>
+  </artifact>
+</component>
