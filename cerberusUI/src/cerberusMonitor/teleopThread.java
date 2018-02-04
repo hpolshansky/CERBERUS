@@ -6,7 +6,6 @@ import java.util.List;
 
 public class teleopThread implements Runnable {
     volatile static boolean deviceOpen = false;
-    volatile boolean finished = false;
 
     public void run(){
         System.out.println("thread is running...");
@@ -41,10 +40,6 @@ public class teleopThread implements Runnable {
                             for (int i = 0; i < len; i++)
                                 System.out.printf("%02X ", data[i]);
                             System.out.println();
-                            System.out.println("STATUS: " + finished);
-                            if(finished) {
-                                dev.close();
-                            }
                         });
                     }
                 }
@@ -58,8 +53,6 @@ public class teleopThread implements Runnable {
         teleopThread t = new teleopThread();
         Thread thread = new Thread(t);
         thread.start();
-        finished = true;
-        System.out.println(finished);
     }
 
 
