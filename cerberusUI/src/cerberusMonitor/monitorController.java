@@ -6,7 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import purejavahidapi.*;
 
-public class monitorController {
+public class MonitorController {
 //    Initial Input: (** indicate selection effected)
 //    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 00 80 01 F8
 //    00 00=l, FF FF=r; left roller pad

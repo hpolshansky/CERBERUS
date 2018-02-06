@@ -4,7 +4,7 @@ import purejavahidapi.*;
 
 import java.util.List;
 
-public class teleopThread implements Runnable {
+public class TeleopThread implements Runnable {
     volatile static boolean deviceOpen = false;
     volatile boolean finished;
 
@@ -58,7 +58,7 @@ public class teleopThread implements Runnable {
 
     public void start() {
         finished = false;
-        teleopThread t = new teleopThread();
+        TeleopThread t = new TeleopThread();
         Thread thread = new Thread(t);
         thread.start();
     }

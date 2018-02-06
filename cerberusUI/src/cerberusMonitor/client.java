@@ -7,18 +7,18 @@ import java.net.Socket;
 import java.util.Scanner;
 
 // modeled from: https://www.pegaxchange.com/2017/12/07/simple-tcp-ip-server-client-java/
-public class client implements Runnable {
+public class Client implements Runnable {
     private Socket socket;
     private Scanner scanner;
-    private client localClient;
+    private Client localClient;
     private Message msg = new Message();
 
-    client(InetAddress serverAddress, int serverPort) throws Exception {
+    Client(InetAddress serverAddress, int serverPort) throws Exception {
         this.socket = new Socket(serverAddress, serverPort);
         this.scanner = new Scanner(System.in);
     }
 
-    public void start(client c1) {
+    public void start(Client c1) {
         localClient = c1;
         Thread t2 = new Thread(localClient);
         t2.start();
@@ -29,7 +29,7 @@ public class client implements Runnable {
         try {
             System.out.println("\r\nConnected to: " + localClient.socket.getInetAddress());
 
-            // client actions
+            // Client actions
             while (true) {
 //                input = scanner.nextLine();
                 input = Message.getMsg();
@@ -49,7 +49,7 @@ public class client implements Runnable {
         out.flush();
     }
 
-    public client getLocalClient(){ return localClient; }
+    public Client getLocalClient(){ return localClient; }
 
     public Socket getSocket() { return localClient.socket; }
 }
