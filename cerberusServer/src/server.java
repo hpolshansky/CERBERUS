@@ -1,5 +1,3 @@
-package cerberusServer;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.InetAddress;
@@ -26,6 +24,7 @@ public class server {
             System.out.println("\r\nMessage from " + clientAddress + ": " + data);
         }
     }
+
     public InetAddress getSocketAddress() {
         return this.server.getInetAddress();
     }
@@ -33,6 +32,7 @@ public class server {
     public int getPort() {
         return this.server.getLocalPort();
     }
+
     public static void main(String[] args) throws Exception {
         server app = new server(args[0]);
 

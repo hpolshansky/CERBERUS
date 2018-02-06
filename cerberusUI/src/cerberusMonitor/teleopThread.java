@@ -1,11 +1,12 @@
 package cerberusMonitor;
 
 import purejavahidapi.*;
-import java.io.IOException;
+
 import java.util.List;
 
 public class teleopThread implements Runnable {
     volatile static boolean deviceOpen = false;
+    Message msg = new Message();
 
     public void run(){
         System.out.println("thread is running...");
@@ -37,9 +38,13 @@ public class teleopThread implements Runnable {
                         });
                         dev.setInputReportListener((source, Id, data, len) -> {
                             System.out.printf("onInputReport: id %d len %d data ", Id, len);
-                            for (int i = 0; i < len; i++)
-                                System.out.printf("%02X ", data[i]);
-                            System.out.println();
+//                            for (int i = 0; i < len; i++) {
+////                                System.out.printf("%02X ", data[i]);
+//                            }
+                            msg.setMsg("COOKIE????");
+//                            msg.setMsg(String.format("%02X", data[3]));
+//                            System.out.println(msg.getMsg());
+//                            System.out.println();
                         });
                     }
                 }

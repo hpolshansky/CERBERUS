@@ -24,7 +24,7 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         try {
-            client c = new client(InetAddress.getByName("192.168.254.13"), Integer.parseInt("2000"));
+            client c = new client(InetAddress.getByName("130.215.222.220"), Integer.parseInt("2000"));
             c.start(c);
         } catch (Exception e) {
             e.printStackTrace();
