@@ -31,13 +31,12 @@ public class client implements Runnable {
 
             // client actions
             while (true) {
-                input = scanner.nextLine();
-//                input = msg.getMsg();
-//                if(input != null) {
-                sendInput(input);
-//                    msg.setMsg(null);
-//                }
-//                Thread.sleep(1000);
+//                input = scanner.nextLine();
+                input = Message.getMsg();
+                if(input != null) {
+                    sendInput(input);
+                    Message.setMsg(null);
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -34,7 +34,7 @@ public class monitorController {
 
     // Test func
     public void pressed() {
-        System.out.println("CHECK: ");
+        System.out.println("PIZZA");
     }
 
     // Creates pop-up stage

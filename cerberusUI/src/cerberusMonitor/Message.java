@@ -1,13 +1,13 @@
 package cerberusMonitor;
 
 public class Message {
-    private volatile String msg;
+    private static String msg;
 
-    public synchronized String getMsg() {
+    public static synchronized String getMsg() {
         return msg;
     }
 
-    public synchronized void setMsg(String msg) {
-        this.msg = msg;
+    public static synchronized void setMsg(String msg) {
+        Message.msg = msg;
     }
 }
