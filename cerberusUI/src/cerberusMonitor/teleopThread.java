@@ -7,6 +7,7 @@ import java.util.List;
 public class TeleopThread implements Runnable {
     volatile static boolean deviceOpen = false;
     volatile boolean finished;
+    byte[] msg = new byte[4];
 
     public void run(){
         System.out.println("thread is running...");
@@ -38,10 +39,20 @@ public class TeleopThread implements Runnable {
                         });
                         dev.setInputReportListener((source, Id, data, len) -> {
                             System.out.printf("onInputReport: id %d len %d data ", Id, len);
-                            for (int i = 0; i < len; i++) {
-                                System.out.printf("%02X ", data[i]);
-                                Message.setMsg(String.format("%02X", data[i]));
-                            }
+                            byte b0 = (byte) ((1<<7) | (data[2]>>1));
+                            byte b1 = (byte) (((data[2]&0x01)<<6) | (0x3F & (data[3]>>2)));
+                            byte b2 = 0x00;
+                            byte b3 = 0x00;
+                            msg[0]  = b0;
+                            msg[1]  = b1;
+                            msg[2]  = b2;
+                            msg[3]  = b3;
+                            System.out.printf("%02X ", b0);
+                            System.out.printf("%02X ", b1);
+                            System.out.printf("%02X ", b2);
+                            System.out.printf("%02X ", b3);
+
+                            Message.setMsg(msg);
                             System.out.println();
                         });
                     }

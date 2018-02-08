@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.Scanner;
 
 // modeled from: https://www.pegaxchange.com/2017/12/07/simple-tcp-ip-server-client-java/
@@ -11,7 +12,6 @@ public class Client implements Runnable {
     private Socket socket;
     private Scanner scanner;
     private Client localClient;
-    private Message msg = new Message();
 
     Client(InetAddress serverAddress, int serverPort) throws Exception {
         this.socket = new Socket(serverAddress, serverPort);
@@ -25,7 +25,7 @@ public class Client implements Runnable {
     }
 
     public void run(){
-        String input;
+        byte[] input;
         try {
             System.out.println("\r\nConnected to: " + localClient.socket.getInetAddress());
 
@@ -43,9 +43,13 @@ public class Client implements Runnable {
         }
     }
 
-    public void sendInput(String input) throws IOException {
+    public void sendInput(byte[] input) throws IOException {
         PrintWriter out = new PrintWriter(this.socket.getOutputStream(), true);
-        out.println(input);
+        //out.println(Arrays.toString(input));
+        out.write(input[0]);
+        out.write(input[1]);
+        out.write(input[2]);
+        out.write(input[3]);
         out.flush();
     }
 

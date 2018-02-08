@@ -1,13 +1,17 @@
 package cerberusMonitor;
 
 public class Message {
-    private static String msg;
+    private static byte[] msg;
 
-    public static synchronized String getMsg() {
+    public Message() {
+        msg = new byte[4];
+    }
+
+    public static synchronized byte[] getMsg() {
         return msg;
     }
 
-    public static synchronized void setMsg(String msg) {
+    public static synchronized void setMsg(byte[] msg) {
         Message.msg = msg;
     }
 }

@@ -14,7 +14,7 @@
       prefHeight="570.0" prefWidth="1000.0"
       stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="cerberusMonitor.monitorController">
+      fx:controller="cerberusMonitor.MonitorController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="420.0" layoutX="196.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
       <Text layoutX="216.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Main Camera" wrappingWidth="79.37890291213989" />

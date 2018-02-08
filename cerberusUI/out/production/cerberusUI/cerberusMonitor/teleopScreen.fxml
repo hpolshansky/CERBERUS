@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="300.0" prefWidth="300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cerberusMonitor.teleopThread">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cerberusMonitor.TeleopThread">
    <children>
       <Button layoutX="60.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#start" styleClass="std_btn" text="Start" />
       <Button layoutX="60.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#stop" styleClass="std_btn" text="Stop" />
