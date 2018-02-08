@@ -1,7 +1,6 @@
 package cerberusMonitor;
 
 import purejavahidapi.*;
-
 import java.util.List;
 
 public class TeleopThread implements Runnable {
