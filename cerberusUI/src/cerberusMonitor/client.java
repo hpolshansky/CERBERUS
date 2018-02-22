@@ -26,6 +26,7 @@ public class Client implements Runnable {
 
     public void run(){
         byte[] input;
+//        String input;
         try {
             System.out.println("\r\nConnected to: " + localClient.socket.getInetAddress());
 
@@ -44,12 +45,14 @@ public class Client implements Runnable {
     }
 
     public void sendInput(byte[] input) throws IOException {
+//    public void sendInput(String input) throws IOException {
         PrintWriter out = new PrintWriter(this.socket.getOutputStream(), true);
-        //out.println(Arrays.toString(input));
+        out.println(Arrays.toString(input));
         out.write(input[0]);
         out.write(input[1]);
         out.write(input[2]);
         out.write(input[3]);
+//        out.write(input);
         out.flush();
     }
 

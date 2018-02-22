@@ -25,7 +25,7 @@ public class Main extends Application {
     public static void main(String[] args) {
         try {
             // use server IP Address
-            Client c = new Client(InetAddress.getByName("130.215.206.208"), Integer.parseInt("2000"));
+            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
             c.start(c);
         } catch (Exception e) {
             e.printStackTrace();

@@ -13,5 +13,9 @@ Text {
     -fx-pref-width: 180px;
     -fx-pref-height: 60px;
     -fx-font: 20px System;
-    -fx-color: blue;
+    -fx-color: #394860;
+}
+
+#prompt {
+    -fx-font: 24px System;
 }

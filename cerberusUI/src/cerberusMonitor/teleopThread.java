@@ -38,10 +38,19 @@ public class TeleopThread implements Runnable {
                         });
                         dev.setInputReportListener((source, Id, data, len) -> {
                             System.out.printf("onInputReport: id %d len %d data ", Id, len);
-                            byte b0 = (byte) ((1<<7) | (data[2]>>1));
-                            byte b1 = (byte) (((data[2]&0x01)<<6) | (0x3F & (data[3]>>2)));
-                            byte b2 = 0x00;
-                            byte b3 = 0x00;
+//                            byte b0 = (byte) ((1<<7) | (data[2]>>1));
+//                            byte b1 = (byte) (((data[2]&0x01)<<6) | (0x3F & (data[3]>>2)));
+//                            byte b2 = (byte) ((data[6]>>1));
+//                            byte b3 = (byte) (((data[6]&0x01)<<6) | (0x3F & (data[7]>>2)));
+//
+//                            byte b0 = data[2];
+//                            byte b1 = data[3];
+//                            byte b2 = data[6];
+//                            byte b3 = data[7];
+                            byte b0 = (byte) 0xFB;
+                            byte b1 = (byte) 0x92;
+                            byte b2 = 0x3A;
+                            byte b3 = 0x55;
                             msg[0]  = b0;
                             msg[1]  = b1;
                             msg[2]  = b2;
@@ -50,6 +59,13 @@ public class TeleopThread implements Runnable {
                             System.out.printf("%02X ", b1);
                             System.out.printf("%02X ", b2);
                             System.out.printf("%02X ", b3);
+
+//                            for(int i = 2; i < 4; i++) {
+//                                msg = msg + String.format("%02X", data[i]);
+//                            }
+//                            for(int i = 6; i < 8; i++) {
+//                                msg = msg + String.format("%02X", data[i]);
+//                            }
 
                             Message.setMsg(msg);
                             System.out.println();
