@@ -23,3 +23,28 @@ C:\Users\Marissa\source\repos\HERO Serial Example1\HERO Serial Example1\obj\Debu
 C:\Users\Marissa\source\repos\HERO Serial Example1\HERO Serial Example1\obj\Debug\le\HERO Serial Example.pdbx
 C:\Users\Marissa\source\repos\HERO Serial Example1\HERO Serial Example1\obj\Debug\HERO Serial Example.exe
 C:\Users\Marissa\source\repos\HERO Serial Example1\HERO Serial Example1\obj\Debug\HERO Serial Example.pdb
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\le\HERO Serial Example.exe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\be\HERO Serial Example.exe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\le\HERO Serial Example.pdb
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\be\HERO Serial Example.pdb
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\HERO Serial Example.exe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\HERO Serial Example.pdb
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\le\HERO Serial Example.pe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\le\HERO Serial Example.pdbx
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\be\HERO Serial Example.pe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\be\HERO Serial Example.pdbx
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\LE\CTRE.pe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\BE\CTRE.pe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\LE\CTRE.pdbx
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\BE\CTRE.pdbx
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\CTRE.dll
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\bin\Debug\CTRE.pdb
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\HERO Serial Example1.csprojResolveAssemblyReference.cache
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\TinyCLR_DebugReferences.cache
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\HERO Serial Example1.csproj.CoreCompileInputs.cache
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\be\HERO Serial Example.pe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\be\HERO Serial Example.pdbx
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\le\HERO Serial Example.pe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\le\HERO Serial Example.pdbx
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\HERO Serial Example.exe
+C:\Users\Marissa\Documents\CERBERUS\HERO Serial Example1\obj\Debug\HERO Serial Example.pdb

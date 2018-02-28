@@ -154,7 +154,6 @@ namespace CTRE_Serial_Example
                     //    rightTalon = Map(rightVal, 192, 280) / 2;
                     //}
                 }
-
                 //for (int i = 0; i < readCnt; ++i)
                 //{
                 //    PushByte(_rx[i]);
