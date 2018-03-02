@@ -4,7 +4,7 @@ public class Message {
     private static byte[] msg;
 
     public Message() {
-        msg = new byte[4];
+        msg = new byte[6];
     }
 
     public static synchronized byte[] getMsg() {

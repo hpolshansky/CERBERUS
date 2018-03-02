@@ -1,12 +1,13 @@
 package cerberusMonitor;
 
 import purejavahidapi.*;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class TeleopThread implements Runnable {
     volatile static boolean deviceOpen = false;
     volatile boolean finished;
-    byte[] msg = new byte[4];
 
     public void run(){
         System.out.println("thread is running...");
@@ -47,19 +48,14 @@ public class TeleopThread implements Runnable {
 //                            byte b1 = data[3];
 //                            byte b2 = data[6];
 //                            byte b3 = data[7];
-                            byte b0 = (byte) 0xFB;
-                            byte b1 = (byte) 0x92;
-                            byte b2 = 0x3A;
-                            byte b3 = 0x55;
-                            msg[0]  = b0;
-                            msg[1]  = b1;
-                            msg[2]  = b2;
-                            msg[3]  = b3;
-                            System.out.printf("%02X ", b0);
-                            System.out.printf("%02X ", b1);
-                            System.out.printf("%02X ", b2);
-                            System.out.printf("%02X ", b3);
-
+                            byte[] tx_data = new byte[4];
+                            tx_data[0] = (byte)(data[2]+128);
+                            tx_data[1] = (byte)(data[3]+128);
+                            tx_data[2] = (byte)(data[6]+128);
+                            tx_data[3] = (byte)(data[7]+128);
+                            COBS encoder = new COBS();
+                            byte[] msg = encoder.Encode(tx_data);
+                            System.out.printf(Arrays.toString(tx_data));
 //                            for(int i = 2; i < 4; i++) {
 //                                msg = msg + String.format("%02X", data[i]);
 //                            }
@@ -77,7 +73,9 @@ public class TeleopThread implements Runnable {
             e.printStackTrace();
         }
     }
-
+    public byte genByte(int val) {
+        return ((byte)val);
+    }
     public void stop() {
         finished = true;
     }
