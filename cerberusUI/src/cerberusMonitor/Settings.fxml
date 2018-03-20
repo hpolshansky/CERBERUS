@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cerberusMonitor.SettingsController">
+<AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cerberusMonitor.SettingsController">
    <children>
-      <Text layoutX="265.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Settings!" />
+      <Text layoutX="14.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:" />
+      <Button layoutX="216.0" layoutY="247.0" mnemonicParsing="false" text="Apply" />
+      <TextField layoutX="14.0" layoutY="62.0" text="192.168.1.66" />
+      <ChoiceBox fx:id="themeChoice" layoutX="14.0" layoutY="136.0" prefWidth="150.0" />
+      <Text layoutX="14.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theme:" />
    </children>
 </AnchorPane>

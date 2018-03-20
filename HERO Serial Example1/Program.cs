@@ -50,7 +50,14 @@ namespace CTRE_Serial_Example
                 }
                 else
                 {
+                    try
+                    {
                         data[ind - 1] = frame[ind];
+                    }
+                    catch(IndexOutOfRangeException err)
+                    {
+                        return new byte[1];
+                    }
                 }
             }
             return data;
@@ -96,39 +103,42 @@ namespace CTRE_Serial_Example
                     {
 
                         byte[] msgDec = Decode(loc_rx_buf);
-                        short left = BitConverter.ToInt16(msgDec, 0);//(ushort)((msgDec[0]<<8) | msgDec[1]);
-                        short right = BitConverter.ToInt16(msgDec, 2);
-                        //Debug.Print(left.ToString());
-                        //Debug.Print(right.ToString());
-                        //talonID0.Set(rightTalon);
-                        //talonID1.Set(leftTalon);
-                        float leftFloat = ((-0.00003f) * left) - 0.0013f;
-                        float rightFloat = ((-0.00003f) * right) - 0.0013f;
-                        if((leftFloat<0.15) && (leftFloat > -0.15))
+                        if (msgDec.Length == 4)
                         {
-                            leftOut = 0.00f;
-                        }
-                        else
-                        {
-                            leftOut = leftFloat;
-                        }
-                        if ((rightFloat < 0.15) && (rightFloat > -0.15))
-                        {
-                            rightOut = 0.00f;
-                        }
-                        else
-                        {
-                            rightOut = rightFloat;
+                            short left = BitConverter.ToInt16(msgDec, 0);//(ushort)((msgDec[0]<<8) | msgDec[1]);
+                            short right = BitConverter.ToInt16(msgDec, 2);
+                            //Debug.Print(left.ToString());
+                            //Debug.Print(right.ToString());
+                            //talonID0.Set(rightTalon);
+                            //talonID1.Set(leftTalon);
+                            float leftFloat = ((-0.00003f) * left) - 0.0013f;
+                            float rightFloat = ((-0.00003f) * right) - 0.0013f;
+                            if ((leftFloat < 0.15) && (leftFloat > -0.15))
+                            {
+                                leftOut = 0.00f;
+                            }
+                            else
+                            {
+                                leftOut = leftFloat;
+                            }
+                            if ((rightFloat < 0.15) && (rightFloat > -0.15))
+                            {
+                                rightOut = 0.00f;
+                            }
+                            else
+                            {
+                                rightOut = rightFloat;
+                            }
                         }
 
                     }
 
                 }
-                Debug.Print("left: " + leftOut.ToString());
-                Debug.Print("right: " + rightOut.ToString());
+                //Debug.Print("left: " + leftOut.ToString());
+                //Debug.Print("right: " + rightOut.ToString());
 
-                //talonID0.Set(Program.rightOut);
-                //talonID1.Set(Program.leftOut);
+                talonID0.Set(Program.rightOut);
+                talonID1.Set(Program.leftOut);
                 CTRE.Phoenix.Watchdog.Feed();
 
                 /* wait a bit, keep the main loop time constant, this way you can add to this example (motor control for example). */

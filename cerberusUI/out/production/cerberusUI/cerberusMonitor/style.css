@@ -19,3 +19,8 @@ Text {
 #prompt {
     -fx-font: 24px System;
 }
+
+#diag {
+    -fx-font: 20px System;
+    -fx-color: #a5f006;
+}

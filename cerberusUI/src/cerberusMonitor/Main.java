@@ -9,8 +9,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import purejavahidapi.HidDeviceInfo;
+import purejavahidapi.PureJavaHidApi;
 
 import java.net.InetAddress;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -27,13 +30,32 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        try {
-            // use server IP Address
-            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
-            c.start(c);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            // use server IP Address
+//            IPAddress ip = new IPAddress();
+//
+//            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
+//            c.start(c);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
+//        try {
+//            List<HidDeviceInfo> devList = PureJavaHidApi.enumerateDevices();
+//            for (HidDeviceInfo info : devList) {
+//                System.out.printf("VID = 0x%04X PID = 0x%04X Manufacturer = %s Product = %s Path = %s\n", //
+//                        info.getVendorId(), //
+//                        info.getProductId(), //
+//                        info.getManufacturerString(), //
+//                        info.getProductString(), //
+//                        info.getPath());
+//
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         launch(args);
+//        new Notifier("No server connected. Some functionality may be disabled.\n" +
+//            "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
     }
 }
