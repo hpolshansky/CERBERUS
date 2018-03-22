@@ -10,18 +10,19 @@ if __name__ == '__main__':
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((TCP_IP, TCP_PORT))
 
-    ser = serial.Serial('/dev/ttyACM0')
-    ser.baudrate = 115200
-    ser.timeout = 0
-    ser.open()  
+    #ser = serial.Serial('/dev/ttyACM0')
+    #ser.baudrate = 115200
+    #ser.timeout = 0
+    #ser.open()  
     
     while(1):
-        msg = ser.read()
-        s.send(msg)
+        #msg = ser.read()
+        #s.send(msg)
         data = s.recv(BUFFER_SIZE)
-        ser.write(data);
+        #ser.write(data);
+        s.send(data)
         print "Received data: ", data
-        print "Sent data: ", msg
+        print "Sent data: ", data#msg
     s.close()
     ser.close()
 
