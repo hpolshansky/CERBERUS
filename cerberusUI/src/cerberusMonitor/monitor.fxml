@@ -53,11 +53,13 @@
            <Image url="@../resources/1stview.jpg" />
        </image>
       </ImageView>
-      <ToggleButton fx:id="toggleView" layoutX="909.0" layoutY="510.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="60.0" prefWidth="91.0" text="View">
+      <ToggleButton fx:id="toggleView" layoutX="673.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="30.0" prefWidth="91.0" text="View">
          <font>
             <Font size="22.0" />
          </font></ToggleButton>
-      <Text id="diag" layoutX="898.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THIS IS DIALOG TEXT" wrappingWidth="90.99998264721944" />
+      <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery: 50%" wrappingWidth="126.99998264721944" />
+      <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Running: 2 min 1 sec" wrappingWidth="126.99998264721944" />
+      <Text id="diag" fill="#3bff00" layoutX="859.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNECTED" wrappingWidth="126.99998264721944" />
        <!--<JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-6.0" prefHeight="368.0" prefWidth="108.0" />-->
        <!--<JFXHamburger fx:id="hamburger" layoutX="460.0" layoutY="14.0" />-->
    </children>

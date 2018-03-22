@@ -30,15 +30,15 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-//        try {
-//            // use server IP Address
+        try {
+            // use server IP Address
 //            IPAddress ip = new IPAddress();
-//
-//            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
-//            c.start(c);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+
+            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
+            c.start(c);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 //        try {
 //            List<HidDeviceInfo> devList = PureJavaHidApi.enumerateDevices();
