@@ -1,5 +1,8 @@
 package cerberusMonitor;
 
+import com.googlecode.javacv.CanvasFrame;
+import com.googlecode.javacv.OpenCVFrameGrabber;
+import com.googlecode.javacv.cpp.opencv_core;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -41,8 +44,21 @@ public class MonitorController {
 //    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 00 *80* 01 F8
 
     // Test func
-    public void pressed() throws IOException {
+    public void pressed() throws Exception {
         new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
+        OpenCVFrameGrabber frameGrabber = new OpenCVFrameGrabber("http://147.158.214.168:81/index.htm");
+        frameGrabber.setFormat("mjpeg");
+        frameGrabber.start();
+        opencv_core.IplImage iPimg = frameGrabber.grab();
+        CanvasFrame canvasFrame = new CanvasFrame("Camera");
+        canvasFrame.setCanvasSize(iPimg.width(), iPimg.height());
+
+        while (canvasFrame.isVisible() && (iPimg = frameGrabber.grab()) != null) {
+            canvasFrame.showImage(iPimg);
+        }
+        frameGrabber.stop();
+        canvasFrame.dispose();
+        System.exit(0);
     }
 
     public void menuClicked() {

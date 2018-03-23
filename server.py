@@ -40,9 +40,9 @@ if __name__ == "__main__":
 			try:
 				data = client.recv(size)
 				if not data:
-					print(check_ping("192.168.1.50")); # base radio
-					print(check_ping("192.168.1.20")); # robot radio
-					# print(check_ping("192.168.1.66")); # main computer
+					print(check_ping("192.168.1.30")) # base radio
+					print(check_ping("192.168.1.20")) # robot radio
+					# print(check_ping("192.168.1.66")) # main computer
 					raise KeyboardInterrupt
 				if data != None:
 					# print(data)

@@ -4,16 +4,12 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import purejavahidapi.HidDeviceInfo;
 import purejavahidapi.PureJavaHidApi;
-
-import java.net.InetAddress;
-import java.util.List;
 
 public class Main extends Application {
 
@@ -30,15 +26,15 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        try {
-            // use server IP Address
-//            IPAddress ip = new IPAddress();
-
-            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
-            c.start(c);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            // use server IP Address
+////            IPAddress ip = new IPAddress();
+//
+//            Client c = new Client(InetAddress.getByName("192.168.1.1"), Integer.parseInt("2000"));
+//            c.start(c);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 //        try {
 //            List<HidDeviceInfo> devList = PureJavaHidApi.enumerateDevices();
