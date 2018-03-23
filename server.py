@@ -39,17 +39,17 @@ if __name__ == "__main__":
 		while 1:
 			try:
 				data = client.recv(size)
-				if not data:
-					print(check_ping("192.168.1.30")) # base radio
-					print(check_ping("192.168.1.20")) # robot radio
-					# print(check_ping("192.168.1.66")) # main computer
-					raise KeyboardInterrupt
+				# if not data:
+				# 	print(check_ping("192.168.1.30")) # base radio
+				# 	print(check_ping("192.168.1.20")) # robot radio
+				# 	# print(check_ping("192.168.1.66")) # main computer
+				# 	raise KeyboardInterrupt
 				if data != None:
 					# print(data)
 					ser.write(data)
 					data = None
 
-			except KeyboardInterrupt:
-				# client.close()
-				print("Client Close")
-				continue
+			# except KeyboardInterrupt:
+			# 	# client.close()
+			# 	print("Client Close")
+			# 	continue
