@@ -68,7 +68,9 @@ namespace CTRE_Serial_Example
             CTRE.Phoenix.MotorControllers.TalonSrx talonID0 = new CTRE.Phoenix.MotorControllers.TalonSrx(0);
             CTRE.Phoenix.MotorControllers.TalonSrx talonID1 = new CTRE.Phoenix.MotorControllers.TalonSrx(1);
 
-            
+            talonID0.SetInverted(true);
+            talonID1.SetInverted(true);
+
             _uart = new System.IO.Ports.SerialPort(CTRE.HERO.IO.Port1.UART, 115200);
             _uart.Open();
             ushort rx_len = 6;
@@ -80,69 +82,50 @@ namespace CTRE_Serial_Example
             while (true)
             {
 
-                talonID0.SetInverted(true);
-                talonID1.SetInverted(true); // Why is this in a loop?
-
                 /* read bytes out of uart */
                 if (_uart.BytesToRead > 0)
                 {
                     byte[] readByte = { 0x00 };
                     _uart.Read(readByte,0,1);
                     byte nextByte = readByte[0];
-                    //nextByte = (byte)(nextByte-1);
-                    //nextByte = (byte)~nextByte;
-                    //Debug.Print(nextByte.ToString());
+
                     for (int j = 0; j < rx_len - 1; j++)
                     {
                         loc_rx_buf[j] = loc_rx_buf[j + 1];
                     }
                     loc_rx_buf[rx_len - 1] = nextByte;
-                    //Debug.Print(nextByte.ToString());
-                    //Check if in place
+
                     if ((loc_rx_buf[rx_len - 1] == 0x00)) //TODO: Make so isn't frame size specific
                     {
-
                         byte[] msgDec = Decode(loc_rx_buf);
                         if (msgDec.Length == 4)
                         {
-                            short left = BitConverter.ToInt16(msgDec, 0);//(ushort)((msgDec[0]<<8) | msgDec[1]);
+                            short left = BitConverter.ToInt16(msgDec, 0);
                             short right = BitConverter.ToInt16(msgDec, 2);
-                            //Debug.Print(left.ToString());
-                            //Debug.Print(right.ToString());
-                            //talonID0.Set(rightTalon);
-                            //talonID1.Set(leftTalon);
                             float leftFloat = ((-0.00003f) * left) - 0.0013f;
                             float rightFloat = ((-0.00003f) * right) - 0.0013f;
-                            if ((leftFloat < 0.15) && (leftFloat > -0.15))
-                            {
-                                leftOut = 0.00f;
-                            }
-                            else
-                            {
-                                leftOut = leftFloat;
-                            }
-                            if ((rightFloat < 0.15) && (rightFloat > -0.15))
-                            {
-                                rightOut = 0.00f;
-                            }
-                            else
-                            {
-                                rightOut = rightFloat;
-                            }
+                            if ((leftFloat < 0.15) && (leftFloat > -0.15)) leftOut = 0.00f;
+                            else leftOut = leftFloat;
+                            if ((rightFloat < 0.15) && (rightFloat > -0.15)) rightOut = 0.00f;
+                            else rightOut = rightFloat;
                         }
-
                     }
 
                 }
-                //Debug.Print("left: " + leftOut.ToString());
-                //Debug.Print("right: " + rightOut.ToString());
+                else if (_uart.BytesToRead == 0)
+                {
+                    leftOut = 0.00f;
+                    rightOut = 0.00f;
+                }
+                Debug.Print("left: " + leftOut.ToString());
+                Debug.Print("right: " + rightOut.ToString());
 
-                talonID0.Set(Program.rightOut);
-                talonID1.Set(Program.leftOut);
+                //talonID0.Set(rightOut);
+                //talonID1.Set(leftOut);
                 CTRE.Phoenix.Watchdog.Feed();
 
                 /* wait a bit, keep the main loop time constant, this way you can add to this example (motor control for example). */
-                Thread.Sleep(10);
+                Thread.Sleep(5);
             }
         }
     }

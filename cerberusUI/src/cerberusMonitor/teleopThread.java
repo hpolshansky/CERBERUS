@@ -14,6 +14,7 @@ public class TeleopThread implements Runnable {
     volatile static boolean deviceOpen = false;
     volatile boolean finished;
     public Label errorReport;
+    private COBS encoder = new COBS();
 
     public void run(){
         System.out.println("thread is running...");
@@ -25,8 +26,8 @@ public class TeleopThread implements Runnable {
                     List<HidDeviceInfo> devList = PureJavaHidApi.enumerateDevices();
                     for (HidDeviceInfo info : devList) {
                         // finds gamepad device OG
-//                        if (info.getVendorId() == (short) 0x1BAD && info.getProductId() == (short) 0xFA01) {
-                        if (info.getVendorId() == (short) 0x045E && info.getProductId() == (short) 0x028E) {
+                        if (info.getVendorId() == (short) 0x1BAD && info.getProductId() == (short) 0xFA01) {
+//                        if (info.getVendorId() == (short) 0x045E && info.getProductId() == (short) 0x028E) {
                             devInfo = info;
                             break;
                         }
@@ -52,10 +53,9 @@ public class TeleopThread implements Runnable {
                             tx_data[1] = (byte)(data[3]+128);
                             tx_data[2] = (byte)(data[6]+128);
                             tx_data[3] = (byte)(data[7]+128);
-//                            tx_data[4] = (byte)(data[10]+128);
-                            COBS encoder = new COBS();
+//                            tx_data[4] = (byte)(data[10]+128); // b button
                             byte[] msg = encoder.Encode(tx_data);
-                            System.out.printf(Arrays.toString(tx_data));
+                            System.out.print(Arrays.toString(tx_data));
 
                             Message.setMsg(msg);
                             System.out.println();
