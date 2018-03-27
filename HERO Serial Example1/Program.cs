@@ -45,22 +45,36 @@ namespace CTRE_Serial_Example
                     if (frame[ind] != 0x00)
                     {
                         //Not Done. Replace with zero
-                        Debug.Print("I am a pirate");
                         count = frame[ind];
                         data[ind - 1] = 0x00;
                     }
                 }
+                else if ((count+ind) >= len)
+                {
+                    data[0] = 127;
+                    data[1] = 255;
+                    data[2] = 127;
+                    data[3] = 255;
+                    return data;
+                }
                 else
                 {
                     //Debug.Print("S" + ind.ToString() + "...." + data[ind - 1].ToString() + "E");
+                    if(frame[ind] == 0x00)
+                    {
+                        //127, -1, 127, -1
+                        data[0] = 127;
+                        data[1] = 255;
+                        data[2] = 127;
+                        data[3] = 255;
+                        return data;
+                    }
                     try
                     {
                         data[ind - 1] = frame[ind];
                     }
                     catch(IndexOutOfRangeException err)
                     {
-                        Debug.Print("S" + ind.ToString());
-                        Debug.Print("S" + count.ToString());
                         return new byte[1];
                     }
                 }
@@ -76,6 +90,8 @@ namespace CTRE_Serial_Example
             talonID0.SetInverted(true);
             talonID1.SetInverted(true);
 
+            Boolean newMsg = false;
+
             _uart = new System.IO.Ports.SerialPort(CTRE.HERO.IO.Port1.UART, 115200);
             _uart.Open();
             ushort rx_len = 6;
@@ -86,7 +102,6 @@ namespace CTRE_Serial_Example
             }
             while (true)
             {
-
                 /* read bytes out of uart */
                 if (_uart.BytesToRead > 0)
                 {
@@ -99,14 +114,13 @@ namespace CTRE_Serial_Example
                         loc_rx_buf[j] = loc_rx_buf[j + 1];
                     }
                     loc_rx_buf[rx_len - 1] = nextByte;
-                    Debug.Print("nb: " + nextByte.ToString());
 
                     if ((loc_rx_buf[rx_len - 1] == 0x00)) //TODO: Make so isn't frame size specific
                     {
-                        Debug.Print("J" + loc_rx_buf[0].ToString() + "..." + loc_rx_buf[1].ToString() + "..." + loc_rx_buf[2].ToString() + "..." + loc_rx_buf[3].ToString() + "..." + loc_rx_buf[4].ToString());
                         byte[] msgDec = Decode(loc_rx_buf);
                         if (msgDec.Length == 4)
                         {
+                            newMsg = true;
                             short left = BitConverter.ToInt16(msgDec, 0);
                             short right = BitConverter.ToInt16(msgDec, 2);
                             float leftFloat = ((-0.00003f) * left) - 0.0013f;
@@ -133,11 +147,37 @@ namespace CTRE_Serial_Example
                 }
                 //Debug.Print("left: " + leftOut.ToString());
                 //Debug.Print("right: " + rightOut.ToString());
-                //talonID0.Set(0.0f);
-                //talonID1.Set(0.0f);
-
-                //talonID0.Set(rightOut);
-                //talonID1.Set(leftOut);
+                //Debug.Print(localDate.Millisecond.ToString());
+                //if (DateTime.Now.Millisecond > localDate.Millisecond+200)
+                //{
+                //    //Debug.Print("Too slow mfcker");
+                //    //talonID0.Set(0.0f);
+                //    //talonID1.Set(0.0f);
+                //}
+                //if (newMsg)
+                //{
+                //    if (leftOut < 0.1 && leftOut > -0.1)
+                //    {
+                //        //Debug.Print("More left");
+                //        talonID1.Set(0.0f);
+                //    }
+                //    else
+                //    {
+                //        talonID1.Set(leftOut);
+                //    }
+                //    if (rightOut < 0.1 && rightOut > -0.1)
+                //    {
+                //        //Debug.Print("More right");
+                //        talonID0.Set(0.0f);
+                //    }
+                //    else
+                //    {
+                //        talonID0.Set(rightOut);
+                //    }
+                //    newMsg = false;
+                //}
+                talonID0.Set(0.0f);
+                talonID1.Set(0.0f);
                 CTRE.Phoenix.Watchdog.Feed();
 
                 /* wait a bit, keep the main loop time constant, this way you can add to this example (motor control for example). */

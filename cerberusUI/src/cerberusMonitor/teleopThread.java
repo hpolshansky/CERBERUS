@@ -39,15 +39,6 @@ public class TeleopThread implements Runnable {
                         });
                         dev.setInputReportListener((source, Id, data, len) -> {
                             System.out.printf("onInputReport: id %d len %d data ", Id, len);
-//                            byte b0 = (byte) ((1<<7) | (data[2]>>1));
-//                            byte b1 = (byte) (((data[2]&0x01)<<6) | (0x3F & (data[3]>>2)));
-//                            byte b2 = (byte) ((data[6]>>1));
-//                            byte b3 = (byte) (((data[6]&0x01)<<6) | (0x3F & (data[7]>>2)));
-//
-//                            byte b0 = data[2];
-//                            byte b1 = data[3];
-//                            byte b2 = data[6];
-//                            byte b3 = data[7];
                             byte[] tx_data = new byte[4];
                             tx_data[0] = (byte)(data[2]+128);
                             tx_data[1] = (byte)(data[3]+128);
@@ -56,12 +47,6 @@ public class TeleopThread implements Runnable {
                             COBS encoder = new COBS();
                             byte[] msg = encoder.Encode(tx_data);
                             System.out.printf(Arrays.toString(tx_data));
-//                            for(int i = 2; i < 4; i++) {
-//                                msg = msg + String.format("%02X", data[i]);
-//                            }
-//                            for(int i = 6; i < 8; i++) {
-//                                msg = msg + String.format("%02X", data[i]);
-//                            }
 
                             Message.setMsg(msg);
                             System.out.println();
