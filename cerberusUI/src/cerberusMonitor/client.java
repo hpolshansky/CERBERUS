@@ -7,6 +7,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Timer;
 
 // modeled from: https://www.pegaxchange.com/2017/12/07/simple-tcp-ip-server-client-java/
 public class Client implements Runnable {
@@ -27,6 +28,7 @@ public class Client implements Runnable {
 
     public void run(){
         byte[] input;
+        byte[] pinput = null;
 //        String input;
         try {
             System.out.println("\r\nConnected to: " + localClient.socket.getInetAddress());
@@ -35,10 +37,16 @@ public class Client implements Runnable {
             while (true) {
 //                input = scanner.nextLine();
                 input = Message.getMsg();
-                if(input != null) {
-                    sendInput(input);
-                    Message.setMsg(null);
+                if(input != null) { // new message sent
+                    sendInput(input); // send it
+                    pinput = input;
+                    Message.setMsg(null); // clear msg
                 }
+                else if (pinput != null){ // no new messages
+                    sendInput(pinput); // send last message
+                    Message.setMsg(null); // clear msg
+                }
+                Thread.sleep(50);
             }
         } catch (Exception e) {
             e.printStackTrace();

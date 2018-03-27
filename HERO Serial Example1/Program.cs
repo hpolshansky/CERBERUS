@@ -35,7 +35,6 @@ namespace CTRE_Serial_Example
             byte[] data = new byte[len - 2];
             byte count = frame[0];
             int ind = 0; //Start right after overhead
-            //Debug.Print("J" + frame[0].ToString() + "..." + frame[1].ToString() + "..." + frame[2].ToString() + "..." + frame[3].ToString() + "..." + frame[4].ToString());
             while (count > 0)
             {
                 ind++;
@@ -59,7 +58,6 @@ namespace CTRE_Serial_Example
                 }
                 else
                 {
-                    //Debug.Print("S" + ind.ToString() + "...." + data[ind - 1].ToString() + "E");
                     if(frame[ind] == 0x00)
                     {
                         //127, -1, 127, -1
@@ -91,6 +89,8 @@ namespace CTRE_Serial_Example
             talonID1.SetInverted(true);
 
             Boolean newMsg = false;
+            float threshold = 0.10f;
+            long loop = 0;
 
             _uart = new System.IO.Ports.SerialPort(CTRE.HERO.IO.Port1.UART, 115200);
             _uart.Open();
@@ -102,6 +102,7 @@ namespace CTRE_Serial_Example
             }
             while (true)
             {
+                //loop++;
                 /* read bytes out of uart */
                 if (_uart.BytesToRead > 0)
                 {
@@ -147,37 +148,30 @@ namespace CTRE_Serial_Example
                 }
                 //Debug.Print("left: " + leftOut.ToString());
                 //Debug.Print("right: " + rightOut.ToString());
-                //Debug.Print(localDate.Millisecond.ToString());
-                //if (DateTime.Now.Millisecond > localDate.Millisecond+200)
-                //{
-                //    //Debug.Print("Too slow mfcker");
-                //    //talonID0.Set(0.0f);
-                //    //talonID1.Set(0.0f);
-                //}
-                //if (newMsg)
-                //{
-                //    if (leftOut < 0.1 && leftOut > -0.1)
-                //    {
-                //        //Debug.Print("More left");
-                //        talonID1.Set(0.0f);
-                //    }
-                //    else
-                //    {
-                //        talonID1.Set(leftOut);
-                //    }
-                //    if (rightOut < 0.1 && rightOut > -0.1)
-                //    {
-                //        //Debug.Print("More right");
-                //        talonID0.Set(0.0f);
-                //    }
-                //    else
-                //    {
-                //        talonID0.Set(rightOut);
-                //    }
-                //    newMsg = false;
-                //}
-                talonID0.Set(0.0f);
-                talonID1.Set(0.0f);
+                if (newMsg)
+                {
+                    if (leftOut < threshold && leftOut > -threshold)
+                    {
+                        //Debug.Print("More left");
+                        talonID1.Set(0.0f);
+                    }
+                    else
+                    {
+                        talonID1.Set(leftOut);
+                    }
+                    if (rightOut < threshold && rightOut > -threshold)
+                    {
+                        //Debug.Print("More right");
+                        talonID0.Set(0.0f);
+                    }
+                    else
+                    {
+                        talonID0.Set(rightOut);
+                    }
+                    newMsg = false;
+                }
+                //talonID0.Set(0.0f);
+                //talonID1.Set(0.0f);
                 CTRE.Phoenix.Watchdog.Feed();
 
                 /* wait a bit, keep the main loop time constant, this way you can add to this example (motor control for example). */
