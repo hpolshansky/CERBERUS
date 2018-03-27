@@ -17,7 +17,7 @@ def check_ping(ip):
 if __name__ == "__main__":
 	PORT = 2000
 	IPADDR = "192.168.1.66" #IP ADDR
-	size = 8
+	size = 6
 
 	# connect to serial port
 	ser = serial.serial_for_url('/dev/ttyUSB0', do_not_open=True)

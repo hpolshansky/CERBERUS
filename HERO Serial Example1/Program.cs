@@ -35,6 +35,7 @@ namespace CTRE_Serial_Example
             byte[] data = new byte[len - 2];
             byte count = frame[0];
             int ind = 0; //Start right after overhead
+            //Debug.Print("J" + frame[0].ToString() + "..." + frame[1].ToString() + "..." + frame[2].ToString() + "..." + frame[3].ToString() + "..." + frame[4].ToString());
             while (count > 0)
             {
                 ind++;
@@ -44,18 +45,22 @@ namespace CTRE_Serial_Example
                     if (frame[ind] != 0x00)
                     {
                         //Not Done. Replace with zero
+                        Debug.Print("I am a pirate");
                         count = frame[ind];
                         data[ind - 1] = 0x00;
                     }
                 }
                 else
                 {
+                    //Debug.Print("S" + ind.ToString() + "...." + data[ind - 1].ToString() + "E");
                     try
                     {
                         data[ind - 1] = frame[ind];
                     }
                     catch(IndexOutOfRangeException err)
                     {
+                        Debug.Print("S" + ind.ToString());
+                        Debug.Print("S" + count.ToString());
                         return new byte[1];
                     }
                 }
@@ -94,9 +99,11 @@ namespace CTRE_Serial_Example
                         loc_rx_buf[j] = loc_rx_buf[j + 1];
                     }
                     loc_rx_buf[rx_len - 1] = nextByte;
+                    Debug.Print("nb: " + nextByte.ToString());
 
                     if ((loc_rx_buf[rx_len - 1] == 0x00)) //TODO: Make so isn't frame size specific
                     {
+                        Debug.Print("J" + loc_rx_buf[0].ToString() + "..." + loc_rx_buf[1].ToString() + "..." + loc_rx_buf[2].ToString() + "..." + loc_rx_buf[3].ToString() + "..." + loc_rx_buf[4].ToString());
                         byte[] msgDec = Decode(loc_rx_buf);
                         if (msgDec.Length == 4)
                         {
@@ -104,21 +111,30 @@ namespace CTRE_Serial_Example
                             short right = BitConverter.ToInt16(msgDec, 2);
                             float leftFloat = ((-0.00003f) * left) - 0.0013f;
                             float rightFloat = ((-0.00003f) * right) - 0.0013f;
-                            if ((leftFloat < 0.15) && (leftFloat > -0.15)) leftOut = 0.00f;
-                            else leftOut = leftFloat;
-                            if ((rightFloat < 0.15) && (rightFloat > -0.15)) rightOut = 0.00f;
-                            else rightOut = rightFloat;
+                            if ((leftFloat < 0.15) && (leftFloat > -0.15))
+                            {
+                                leftOut = 0.00f;
+                            }
+                            else
+                            {
+                                leftOut = leftFloat;
+                            }
+                            if ((rightFloat < 0.15) && (rightFloat > -0.15))
+                            {
+                                rightOut = 0.00f;
+                            }
+                            else
+                            {
+                                rightOut = rightFloat;
+                            }
                         }
                     }
 
                 }
-                else if (_uart.BytesToRead == 0)
-                {
-                    leftOut = 0.00f;
-                    rightOut = 0.00f;
-                }
-                Debug.Print("left: " + leftOut.ToString());
-                Debug.Print("right: " + rightOut.ToString());
+                //Debug.Print("left: " + leftOut.ToString());
+                //Debug.Print("right: " + rightOut.ToString());
+                //talonID0.Set(0.0f);
+                //talonID1.Set(0.0f);
 
                 //talonID0.Set(rightOut);
                 //talonID1.Set(leftOut);

@@ -1,7 +1,6 @@
 package cerberusMonitor;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
@@ -40,7 +39,6 @@ public class Client implements Runnable {
                     sendInput(input);
                     Message.setMsg(null);
                 }
-                getInput();
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,19 +46,29 @@ public class Client implements Runnable {
     }
 
     public void sendInput(byte[] input) throws IOException {
+//    public void sendInput(String input) throws IOException {
         //PrintWriter out = new PrintWriter(this.socket.getOutputStream(), true);
         OutputStream out = this.socket.getOutputStream();
+//        out.println(Arrays.toString(input));
+        // 0x01 0x03 0x01 0x03 0x01 0x00
+        /*input[0] = 0x01;
+        input[1] = 0x03;
+        input[2] = 0x01;
+        input[3] = 0x03;
+        input[4] = 0x01;
+        input[5] = 0x00;*/
 
-        for (byte anInput : input) {
-            out.write(anInput);
+        for(int i=0;i<input.length;i++)
+        {
+            if(input.length!=6)
+            {
+                int a = 5;
+            }
+            out.write(input[i]);
         }
+
+        //out.write(input);
         out.flush();
-    }
-
-    public void getInput() throws IOException {
-        InputStream in = this.socket.getInputStream();
-
-        in.read();
     }
 
     public Client getLocalClient(){ return localClient; }
