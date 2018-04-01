@@ -1,5 +1,8 @@
 package cerberusMonitor;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 
 import java.io.FileOutputStream;
@@ -38,5 +41,8 @@ public class SettingsController implements java.io.Serializable {
     // sets the theme
     public void setTheme() {
 
+
     }
+
+
 }

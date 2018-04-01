@@ -25,8 +25,6 @@ namespace CTRE_Serial_Example
         static System.IO.Ports.SerialPort _uart;
         /** Ring buffer holding the bytes to transmit. */
         //static byte[] _tx = new byte[1024];
-        // EXTRA
-        //static byte[] _tx = new byte[8];
         static byte[] Decode(byte[] frame)
         {
             ushort len = 6;

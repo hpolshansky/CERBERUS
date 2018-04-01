@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="570.0" fitWidth="1214.0" layoutX="-211.0">
          <image>
-            <Image url="@../resources/bg.jpg" />
+            <Image url="@../resources/bg2.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="161.0" layoutX="824.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
@@ -48,18 +48,18 @@
               <Image url="@../resources/frontview.jpg" />
           </image>
       </ImageView>
-      <ImageView fx:id="topView" fitHeight="394.0" fitWidth="795.0" layoutX="64.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="topView" fitHeight="394.0" fitWidth="795.0" layoutX="64.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" visible="false">
        <image>
            <Image url="@../resources/1stview.jpg" />
        </image>
       </ImageView>
-      <ToggleButton fx:id="toggleView" layoutX="673.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="30.0" prefWidth="91.0" text="View">
+      <ToggleButton fx:id="toggleView" layoutX="673.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="30.0" prefWidth="91.0" text="View" visible="false">
          <font>
             <Font size="22.0" />
          </font></ToggleButton>
-      <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery: 50%" wrappingWidth="126.99998264721944" />
-      <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Running: 2 min 1 sec" wrappingWidth="126.99998264721944" />
-      <Text id="diag" fill="#3bff00" layoutX="859.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNECTED" wrappingWidth="126.99998264721944" />
+      <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery: 50%" visible="false" wrappingWidth="126.99998264721944" />
+      <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Running: 2 min 1 sec" visible="false" wrappingWidth="126.99998264721944" />
+      <Text id="diag" fill="#3bff00" layoutX="859.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNECTED" visible="false" wrappingWidth="126.99998264721944" />
        <!--<JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-6.0" prefHeight="368.0" prefWidth="108.0" />-->
        <!--<JFXHamburger fx:id="hamburger" layoutX="460.0" layoutY="14.0" />-->
    </children>
