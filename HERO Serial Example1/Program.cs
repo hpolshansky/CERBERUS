@@ -155,8 +155,8 @@ namespace CTRE_Serial_Example
                     //_uart.WriteByte(2);
                     _uart.Write(scratch, 0, 1);
                 }
-                //Debug.Print("left: " + leftOut.ToString());
-                //Debug.Print("right: " + rightOut.ToString());
+                
+                // Thresholds the motor values
                 if (newMsg)
                 {
                     if (leftOut < threshold && leftOut > -threshold)
@@ -179,6 +179,8 @@ namespace CTRE_Serial_Example
                     }
                     newMsg = false;
                 }
+                Debug.Print("left: " + leftOut.ToString());
+                Debug.Print("right: " + rightOut.ToString());
                 //talonID0.Set(0.0f);
                 //talonID1.Set(0.0f);
                 CTRE.Phoenix.Watchdog.Feed();

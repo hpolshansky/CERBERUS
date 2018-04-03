@@ -15,7 +15,7 @@ if __name__ == "__main__":
 	ser = serial.serial_for_url('/dev/ttyUSB0', do_not_open=True)
 	ser.baudrate = 115200
 	ser.timeout = 0.05
-	ser.write_timeout = 0.05
+#	ser.write_timeout = 0.05
 
 	try:
 		ser.open()
@@ -30,35 +30,33 @@ if __name__ == "__main__":
 	server_socket.bind((IPADDR, PORT))
 	server_socket.listen(1)
 
-	print("before while")
-
 	while 1:
-#		try:
 		client, address = server_socket.accept()
-		# line = ser.readline()
-		# ser = serial.Serial('/dev/ttyUSB0')  # open serial port
-		# print(ser.name)
-		print("before next while")
+#		client.setblocking(0)
+		client.settimeout(0.05)
 		while 1:
-#			print("in while")
-#			data = client.recv(size)
-#			if data != None:
 			try:
-				x = ser.read()
-				client.send(x)
-			except SerialTimeoutException:
-				print("read timeout")
-				log.exception("read timeout")
-			
-#				try:
-#					ser.write(data)
-#					data = None
-#					print("data written")
-#				except SerialTimeoutException:
-#					log.exception("write timeout")
+				data = client.recv(size)
+				if data != None:
+#                	                print("here")
+					ser.write(data)
+			except socket.error:
+				# no data yet
+#				print("no data")
+#			if data != None:
+#				print("here")
+#				ser.write(data)
+#				data = None
+				try:
 #			else:
-#				print("HERE")
-					#x = ser.read()
-					#print("HERO SAYS: " + x)
-#		except socket.timeout:
-#			print("timed out")
+					x = ser.read()
+					client.send(x)
+				except serial.SerialTimeoutException:
+					print("read timeout")
+#				log.exception("read timeout")
+			
+#			try:
+			# write data
+#			except SerialTimeoutException:
+#				print("write timeout")
+#				log.exception("write timout")
