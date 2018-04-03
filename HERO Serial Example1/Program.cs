@@ -150,12 +150,17 @@ namespace CTRE_Serial_Example
                 /* writes to uart */
                 if (_uart.CanWrite /*&& _uart.BytesToWrite > 0*/)
                 {
-                    //Debug.Print("Printing");
-                    scratch[0] = 0x02;
-                    //_uart.WriteByte(2);
-                    _uart.Write(scratch, 0, 1);
+                    // send voltages of talons via CAN to client
+                    // GetBusVoltage -> returns float
+                    float talonRightVoltage = talonID0.GetBusVoltage();
+                    //talonID1.GetBusVoltage();
+                    //float f = 12.4f; // works
+                    scratch[0] = (byte)((UInt16)talonRightVoltage & 0xFF); // works
+
+                    Debug.Print("Bytes[0]: " + scratch[0].ToString()); //works                    
+                    //_uart.Write(bytes, 0, 1);
                 }
-                
+
                 // Thresholds the motor values
                 if (newMsg)
                 {
@@ -179,8 +184,8 @@ namespace CTRE_Serial_Example
                     }
                     newMsg = false;
                 }
-                Debug.Print("left: " + leftOut.ToString());
-                Debug.Print("right: " + rightOut.ToString());
+                //Debug.Print("left: " + leftOut.ToString());
+                //Debug.Print("right: " + rightOut.ToString());
                 //talonID0.Set(0.0f);
                 //talonID1.Set(0.0f);
                 CTRE.Phoenix.Watchdog.Feed();

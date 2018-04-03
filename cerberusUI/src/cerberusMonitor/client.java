@@ -48,6 +48,9 @@ public class Client implements Runnable {
                     Message.setMsg(null); // clear msg
                 }
                 System.out.println("Recv: " + Arrays.toString(getInput()));
+                if(getInput()[0] == 0x16) {
+                    System.out.println("YES!!!");
+                }
                 Thread.sleep(50);
             }
         } catch (Exception e) {
