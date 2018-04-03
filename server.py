@@ -1,18 +1,10 @@
+#!/usr/bin/python
 import serial
 import socket
 import sys
 import time
-import os
 
-# checks if network on IP is active
-def check_ping(ip):
-    response = os.system("ping -n 1 " + ip)
-    # and then check the response...
-    if response == 0:
-        pingstatus = "Network Active"
-    else:
-        pingstatus = "Network Error"
-    return pingstatus
+print("TEST RUN")
 
 if __name__ == "__main__":
 	PORT = 2000
@@ -22,6 +14,8 @@ if __name__ == "__main__":
 	# connect to serial port
 	ser = serial.serial_for_url('/dev/ttyUSB0', do_not_open=True)
 	ser.baudrate = 115200
+	ser.timeout = 0.05
+	ser.write_timeout = 0.05
 
 	try:
 		ser.open()
@@ -30,26 +24,41 @@ if __name__ == "__main__":
 		sys.exit(1)
 
 	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	# server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	server_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
+#	server_socket.settimeout(0.05);
 	server_socket.bind((IPADDR, PORT))
 	server_socket.listen(1)
 
-	while 1:
-		client, address = server_socket.accept()
-		while 1:
-			try:
-				data = client.recv(size)
-				# if not data:
-				# 	print(check_ping("192.168.1.30")) # base radio
-				# 	print(check_ping("192.168.1.20")) # robot radio
-				# 	# print(check_ping("192.168.1.66")) # main computer
-				# 	raise KeyboardInterrupt
-				if data != None:
-					# print(data)
-					ser.write(data)
-					data = None
+	print("before while")
 
-			# except KeyboardInterrupt:
-			# 	# client.close()
-			# 	print("Client Close")
-			# 	continue
+	while 1:
+#		try:
+		client, address = server_socket.accept()
+		# line = ser.readline()
+		# ser = serial.Serial('/dev/ttyUSB0')  # open serial port
+		# print(ser.name)
+		print("before next while")
+		while 1:
+#			print("in while")
+#			data = client.recv(size)
+#			if data != None:
+			try:
+				x = ser.read()
+				client.send(x)
+			except SerialTimeoutException:
+				print("read timeout")
+				log.exception("read timeout")
+			
+#				try:
+#					ser.write(data)
+#					data = None
+#					print("data written")
+#				except SerialTimeoutException:
+#					log.exception("write timeout")
+#			else:
+#				print("HERE")
+					#x = ser.read()
+					#print("HERO SAYS: " + x)
+#		except socket.timeout:
+#			print("timed out")

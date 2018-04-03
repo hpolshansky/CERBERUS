@@ -19,10 +19,11 @@ namespace CTRE_Serial_Example
 {
     public class Program
     {
+        static System.IO.Ports.SerialPort _uart;
         static float leftOut = 0;
         static float rightOut = 0;
-        /** Serial object, this is constructed on the serial number. */
-        static System.IO.Ports.SerialPort _uart;
+        /* initial message to send to the terminal */
+        //static byte[] _helloMsg = MakeByteArrayFromString("HERO_Serial_Example2 - Start Typing and HERO will echo the letters back.\r\n");
         /** Ring buffer holding the bytes to transmit. */
         //static byte[] _tx = new byte[1024];
         static byte[] Decode(byte[] frame)
@@ -88,10 +89,13 @@ namespace CTRE_Serial_Example
 
             Boolean newMsg = false;
             float threshold = 0.10f;
-            long loop = 0;
+            byte[] scratch = new byte[1];
 
             _uart = new System.IO.Ports.SerialPort(CTRE.HERO.IO.Port1.UART, 115200);
             _uart.Open();
+            /* send a message to the terminal for the user to see */
+            //_uart.Write(_helloMsg, 0, _helloMsg.Length);
+
             ushort rx_len = 6;
             byte[] loc_rx_buf = new byte[rx_len];
             for(int k = 0; k<rx_len;k++)
@@ -100,7 +104,6 @@ namespace CTRE_Serial_Example
             }
             while (true)
             {
-                //loop++;
                 /* read bytes out of uart */
                 if (_uart.BytesToRead > 0)
                 {
@@ -143,6 +146,14 @@ namespace CTRE_Serial_Example
                         }
                     }
 
+                }
+                /* writes to uart */
+                if (_uart.CanWrite /*&& _uart.BytesToWrite > 0*/)
+                {
+                    //Debug.Print("Printing");
+                    scratch[0] = 0x02;
+                    //_uart.WriteByte(2);
+                    _uart.Write(scratch, 0, 1);
                 }
                 //Debug.Print("left: " + leftOut.ToString());
                 //Debug.Print("right: " + rightOut.ToString());
