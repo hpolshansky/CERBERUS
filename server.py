@@ -39,7 +39,10 @@ if __name__ == "__main__":
 				data = client.recv(size)
 				if data != None:
 #                	                print("here")
-					ser.write(data)
+					try:
+						ser.write(data)
+					except serial.SerialTimeoutException:
+						print("write timeout")
 			except socket.error:
 				# no data yet
 #				print("no data")
