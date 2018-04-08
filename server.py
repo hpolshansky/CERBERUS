@@ -4,17 +4,18 @@ import socket
 import sys
 import time
 
-print("TEST RUN")
+print("SERVER RUNNING")
 
 if __name__ == "__main__":
 	PORT = 2000
 	IPADDR = "192.168.1.66" #IP ADDR
 	size = 6
+	c = 0
 
 	# connect to serial port
 	ser = serial.serial_for_url('/dev/ttyUSB0', do_not_open=True)
 	ser.baudrate = 115200
-	ser.timeout = 0.05
+#	ser.timeout = 0.05
 #	ser.write_timeout = 0.05
 
 	try:
@@ -24,7 +25,6 @@ if __name__ == "__main__":
 		sys.exit(1)
 
 	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	# server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	server_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 #	server_socket.settimeout(0.05);
 	server_socket.bind((IPADDR, PORT))
@@ -38,28 +38,18 @@ if __name__ == "__main__":
 			try:
 				data = client.recv(size)
 				if data != None:
-#                	                print("here")
-					try:
-						ser.write(data)
-					except serial.SerialTimeoutException:
-						print("write timeout")
+					ser.write(data)
+			# occurs when client is not sending data yet
 			except socket.error:
-				# no data yet
-#				print("no data")
-#			if data != None:
-#				print("here")
-#				ser.write(data)
-#				data = None
-				try:
-#			else:
-					x = ser.read()
-					client.send(x)
-				except serial.SerialTimeoutException:
-					print("read timeout")
-#				log.exception("read timeout")
-			
-#			try:
-			# write data
-#			except SerialTimeoutException:
-#				print("write timeout")
-#				log.exception("write timout")
+				pass
+
+			try:
+				x = ser.read(3)
+				client.send(x)
+			# occurs when client disconnects
+			except socket.error:
+				client.close()
+				break
+	x = b'\x00'
+	client.send(x)
+	server_socket.close()

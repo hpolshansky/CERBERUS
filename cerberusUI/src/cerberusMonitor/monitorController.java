@@ -9,6 +9,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,6 +24,7 @@ public class MonitorController {
     public ToggleButton toggleView;
     public ImageView frontView;
     public ImageView topView;
+    public Text connection;
 
 //    Initial Input: (** indicate selection effected)
 //    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 00 80 01 F8
@@ -80,6 +84,18 @@ public class MonitorController {
         teleop.setVisible(x);
         retrieveData.setVisible(x);
         settings.setVisible(x);
+    }
+
+    // sets the status of the server
+    public void serverStatus(boolean s) {
+        if (s) {
+            connection.setText("CONNECTED");
+            connection.setFill(Color.valueOf("#3bff00"));
+        }
+        else {
+            connection.setText("DISCONNECTED");
+            connection.setFill(Color.valueOf("#eaff00"));
+        }
     }
 
     public void settingsMenu() throws Exception {

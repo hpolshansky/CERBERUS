@@ -4,18 +4,22 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.net.InetAddress;
 
 public class Main extends Application {
+    static MonitorController monitorController;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("monitor.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("monitor.fxml"));
+        Parent root = loader.load();
         primaryStage.setTitle("CERBERUS Monitor");
-//        primaryStage.setFullScreen(true);
+        monitorController = loader.getController();
         Scene scene = new Scene(root, 1000, 570);
         scene.getStylesheets().add("cerberusMonitor/style.css");
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -31,8 +35,8 @@ public class Main extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        launch(args);
 //        new Notifier("No server connected. Some functionality may be disabled.\n" +
-//            "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
+//                "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
+        launch(args);
     }
 }

@@ -22,10 +22,7 @@ namespace CTRE_Serial_Example
         static System.IO.Ports.SerialPort _uart;
         static float leftOut = 0;
         static float rightOut = 0;
-        /* initial message to send to the terminal */
-        //static byte[] _helloMsg = MakeByteArrayFromString("HERO_Serial_Example2 - Start Typing and HERO will echo the letters back.\r\n");
-        /** Ring buffer holding the bytes to transmit. */
-        //static byte[] _tx = new byte[1024];
+
         static byte[] Decode(byte[] frame)
         {
             ushort len = 6;
@@ -89,12 +86,10 @@ namespace CTRE_Serial_Example
 
             Boolean newMsg = false;
             float threshold = 0.10f;
-            byte[] scratch = new byte[1];
+            byte[] scratch = new byte[3];
 
             _uart = new System.IO.Ports.SerialPort(CTRE.HERO.IO.Port1.UART, 115200);
             _uart.Open();
-            /* send a message to the terminal for the user to see */
-            //_uart.Write(_helloMsg, 0, _helloMsg.Length);
 
             ushort rx_len = 6;
             byte[] loc_rx_buf = new byte[rx_len];
@@ -153,37 +148,39 @@ namespace CTRE_Serial_Example
                     // send voltages of talons via CAN to client
                     // GetBusVoltage -> returns float
                     float talonRightVoltage = talonID0.GetBusVoltage();
-                    //talonID1.GetBusVoltage();
-                    //float f = 12.4f; // works
-                    scratch[0] = (byte)((UInt16)talonRightVoltage & 0xFF); // works
+                    float talonLeftVoltage = talonID1.GetBusVoltage();
+                    //talonID0.GetAnalogIn(); // idk what this does
+                    scratch[0] = 0x01;
+                    scratch[1] = (byte)((UInt16)talonRightVoltage & 0xFF); // works
+                    scratch[2] = (byte)((UInt16)talonLeftVoltage & 0xFF);
 
-                    Debug.Print("Bytes[0]: " + scratch[0].ToString()); //works                    
-                    //_uart.Write(bytes, 0, 1);
+                    //Debug.Print("Bytes[0]: " + scratch[0].ToString()); //works
+                    _uart.Write(scratch, 0, scratch.Length);
                 }
 
                 // Thresholds the motor values
-                if (newMsg)
-                {
-                    if (leftOut < threshold && leftOut > -threshold)
-                    {
-                        //Debug.Print("More left");
-                        talonID1.Set(0.0f);
-                    }
-                    else
-                    {
-                        talonID1.Set(leftOut);
-                    }
-                    if (rightOut < threshold && rightOut > -threshold)
-                    {
-                        //Debug.Print("More right");
-                        talonID0.Set(0.0f);
-                    }
-                    else
-                    {
-                        talonID0.Set(rightOut);
-                    }
-                    newMsg = false;
-                }
+                //if (newMsg)
+                //{
+                //    if (leftOut < threshold && leftOut > -threshold)
+                //    {
+                //        //Debug.Print("More left");
+                //        talonID1.Set(0.0f);
+                //    }
+                //    else
+                //    {
+                //        talonID1.Set(leftOut);
+                //    }
+                //    if (rightOut < threshold && rightOut > -threshold)
+                //    {
+                //        //Debug.Print("More right");
+                //        talonID0.Set(0.0f);
+                //    }
+                //    else
+                //    {
+                //        talonID0.Set(rightOut);
+                //    }
+                //    newMsg = false;
+                //}
                 //Debug.Print("left: " + leftOut.ToString());
                 //Debug.Print("right: " + rightOut.ToString());
                 //talonID0.Set(0.0f);

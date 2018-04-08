@@ -40,7 +40,7 @@
       <Button fx:id="settings" layoutX="488.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#settingsMenu" styleClass="std_btn" text="Settings" visible="false" />
       <ImageView fx:id="menu" fitHeight="71.0" fitWidth="73.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#menuClicked">
            <image>
-               <Image url="@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x.png" />
+               <Image url="@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_RED.png" />
            </image>
        </ImageView>
       <ImageView fx:id="frontView" fitHeight="394.0" fitWidth="782.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" visible="false">
@@ -58,8 +58,8 @@
             <Font size="22.0" />
          </font></ToggleButton>
       <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery: 50%" visible="false" wrappingWidth="126.99998264721944" />
-      <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Running: 2 min 1 sec" visible="false" wrappingWidth="126.99998264721944" />
-      <Text id="diag" fill="#3bff00" layoutX="859.0" layoutY="559.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNECTED" visible="false" wrappingWidth="126.99998264721944" />
+      <Text id="diag" fill="#eaff00" layoutX="845.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Running: 2 min 1 sec" wrappingWidth="126.99998264721944" />
+      <Text fx:id="connection" fill="#3bff00" layoutX="845.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNECTED" wrappingWidth="161.99999848008156" />
        <!--<JFXDrawer fx:id="drawer" defaultDrawerSize="200.0" layoutY="-6.0" prefHeight="368.0" prefWidth="108.0" />-->
        <!--<JFXHamburger fx:id="hamburger" layoutX="460.0" layoutY="14.0" />-->
    </children>
