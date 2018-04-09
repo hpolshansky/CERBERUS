@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -26,6 +27,8 @@ public class MonitorController {
     public ImageView frontView;
     public ImageView topView;
     public Text connection;
+    public ImageView bg;
+    public ImageView menu;
 
 //    Initial Input: (** indicate selection effected)
 //    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 00 80 01 F8
@@ -97,6 +100,26 @@ public class MonitorController {
         else {
             connection.setText("DISCONNECTED");
             connection.setFill(Color.valueOf("#eaff00"));
+        }
+    }
+
+    // changes theme color
+    public void setTheme(int color) {
+        switch (color) {
+            case 1: // red
+                Image bgRed = new Image("@../resources/bg2.png");
+                Image menuRed = new Image("@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_RED.png");
+                bg.setImage(bgRed);
+                menu.setImage(menuRed);
+                break;
+
+            default: // blue
+                Image bgBlue = new Image("@../resources/bg.png");
+                Image menuBlue = new Image("@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_BLUE.png");
+                bg.setImage(bgBlue);
+                menu.setImage(menuBlue);
+                System.out.println("SET");
+                break;
         }
     }
 

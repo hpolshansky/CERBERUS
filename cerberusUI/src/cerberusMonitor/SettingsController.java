@@ -1,27 +1,20 @@
 package cerberusMonitor;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Tooltip;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import static cerberusMonitor.Main.monitorController;
 
 public class SettingsController implements java.io.Serializable {
-    // TODO:
-    // controls for cameras
-    // display temp/status of system
 
-    public ChoiceBox themeChoice;
+    public ChoiceBox<String> themeChoice;
     public String ipaddr;
+    private String themeColor;
 //    public transient int i;
-    // resolution???
-
-    public String getIpaddr() {
-        return ipaddr;
-    }
 
     public void setIpaddr(String ipaddr) {
 //        try {
@@ -37,12 +30,44 @@ public class SettingsController implements java.io.Serializable {
 //        }
     }
 
-
-    // sets the theme
-    public void setTheme() {
-
-
+    @FXML
+    private void initialize() {
+        themeChoice.setItems(FXCollections.observableArrayList("Red", "Blue"));
+        themeChoice.setValue(getThemeColor());
     }
 
+    // changes the theme
+    private void changeTheme() {
+        themeChoice.getSelectionModel().selectedIndexProperty()
+                .addListener((ov, value, new_value) -> {
+                    System.out.println("COLOR: " + new_value.intValue());
+                    monitorController.setTheme(new_value.intValue());
+                    switch (new_value.intValue()) {
+                        case 1: // red
+                            setThemeColor("Red");
+                            break;
 
+                        default: // blue
+                            setThemeColor("Blue");
+                            break;
+                    }
+                });
+    }
+
+    public void applyChanges() {
+//        setIpaddr("");
+        changeTheme();
+    }
+
+    public String getIpaddr() {
+        return ipaddr;
+    }
+
+    private String getThemeColor() {
+        return themeColor;
+    }
+
+    private void setThemeColor(String themeColor) {
+        this.themeColor = themeColor;
+    }
 }
