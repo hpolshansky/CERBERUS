@@ -1,0 +1,8 @@
+prefix=/home/vargoal/CERBERUS/install
+
+Name: RTK-Node
+Description: Description of RTK-Node
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/vargoal/CERBERUS/install/lib 
+Requires: 
