@@ -17,6 +17,8 @@ import static cerberusMonitor.Main.monitorController;
 public class Client implements Runnable {
     private Socket socket;
     private Client localClient;
+    private volatile boolean exit = false;
+    private Thread t2;
 
     // constructor
     Client(InetAddress serverAddress, int serverPort) throws Exception {
@@ -26,7 +28,7 @@ public class Client implements Runnable {
     // thread starts on application startup
     public void start(Client c1) {
         localClient = c1;
-        Thread t2 = new Thread(localClient);
+        t2 = new Thread(localClient);
         t2.start();
     }
 
@@ -39,32 +41,17 @@ public class Client implements Runnable {
             System.out.println("\r\nConnected to: " + localClient.socket.getInetAddress());
 
             // Client actions
-            while (true) {
+            while (!exit) {
                 input = Message.getMsg();
+
                 System.out.println("Recv: " + Arrays.toString(getInput()));
                 if(getInput()[0] == 0) {
-                    System.out.println("SERVER DISCONNECTED");
-                    // close server port
-                    localClient.socket.close();
-//                    // set FXML to show disconnection
+                    // set FXML to show disconnection
                     monitorController.serverStatus(false);
-//                    // wait for server connect
-                    while(true) {
-                        // checks for server connection every 0.1 seconds
-                        if (InetAddress.getByName("192.168.1.66").isReachable(10)) {
-                            try {
-                                System.out.println("Lalala");
-                                Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
-                                c.run();
-                                break;
-                            } catch (Exception e) {
-                                // it's fine; continue
-                                System.out.println("waiting...");
-                            }
-
-                        }
-                    }
-                    System.out.println("I'm outtie");
+                    // close server port and this client
+                    stop();
+                    localClient.socket.close();
+                    this.socket.close();
                 }
                 if(input != null) { // new message sent
                     sendInput(input); // send it
@@ -72,7 +59,7 @@ public class Client implements Runnable {
                     Message.setMsg(null); // clear msg
                 }
                 else if (pinput != null){ // no new messages
-                    sendInput(pinput); // send last message
+                    sendInput(pinput); // send previous message
                     Message.setMsg(null); // clear msg
                 }
                 Thread.sleep(50);
@@ -82,18 +69,18 @@ public class Client implements Runnable {
         }
     }
 
+    private void stop() {
+        exit = true;
+    }
+
     private void sendInput(byte[] input) throws IOException {
         OutputStream out = this.socket.getOutputStream();
-
-        for(int i=0;i<input.length;i++)
-        {
-            if(input.length!=6)
-            {
+        for(int i=0;i<input.length;i++) {
+            if(input.length!=6) {
                 int a = 5;
             }
             out.write(input[i]);
         }
-
         out.flush();
     }
 
@@ -114,5 +101,9 @@ public class Client implements Runnable {
 
     public void setSocket(Socket socket) {
         this.socket = socket;
+    }
+
+    public Thread getT2() {
+        return t2;
     }
 }

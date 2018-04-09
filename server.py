@@ -15,8 +15,6 @@ if __name__ == "__main__":
 	# connect to serial port
 	ser = serial.serial_for_url('/dev/ttyUSB0', do_not_open=True)
 	ser.baudrate = 115200
-#	ser.timeout = 0.05
-#	ser.write_timeout = 0.05
 
 	try:
 		ser.open()
@@ -26,7 +24,6 @@ if __name__ == "__main__":
 
 	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 	server_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-#	server_socket.settimeout(0.05);
 	server_socket.bind((IPADDR, PORT))
 	server_socket.listen(1)
 

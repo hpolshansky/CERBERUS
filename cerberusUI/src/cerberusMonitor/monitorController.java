@@ -15,6 +15,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.InetAddress;
 
 public class MonitorController {
     private Boolean open = false;
@@ -50,6 +51,7 @@ public class MonitorController {
     // Test func
     public void pressed() throws Exception {
         new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
+
 //        OpenCVFrameGrabber frameGrabber = new OpenCVFrameGrabber("http://147.158.214.168:81/index.htm");
 //        frameGrabber.setFormat("mjpeg");
 //        frameGrabber.start();
