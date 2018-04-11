@@ -36,6 +36,7 @@ public class TeleopThread implements Runnable {
                             System.out.println("device removed");
                             deviceOpen = false;
                         });
+
                         dev.setInputReportListener((source, Id, data, len) -> {
                             System.out.printf("onInputReport: id %d len %d data ", Id, len);
                             byte[] tx_data = new byte[4];

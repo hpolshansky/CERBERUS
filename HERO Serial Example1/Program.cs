@@ -143,7 +143,7 @@ namespace CTRE_Serial_Example
 
                 }
                 /* writes to uart */
-                if (_uart.CanWrite /*&& _uart.BytesToWrite > 0*/)
+                if (_uart.CanWrite)
                 {
                     // send voltages of talons via CAN to client
                     // GetBusVoltage -> returns float
@@ -157,6 +157,8 @@ namespace CTRE_Serial_Example
                     //Debug.Print("Bytes[0]: " + scratch[0].ToString()); //works
                     _uart.Write(scratch, 0, scratch.Length);
                 }
+
+                // TODO: if connection fails stop robot
 
                 // Thresholds the motor values
                 //if (newMsg)

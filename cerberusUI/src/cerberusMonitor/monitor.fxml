@@ -40,7 +40,7 @@
                <Image url="@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_RED.png" />
            </image>
        </ImageView>
-      <ImageView fx:id="frontView" fitHeight="394.0" fitWidth="782.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" visible="false">
+      <ImageView fx:id="frontView" fitHeight="394.0" fitWidth="782.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
           <image>
               <Image url="@../resources/frontview.jpg" />
           </image>

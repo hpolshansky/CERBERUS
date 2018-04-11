@@ -1,8 +1,6 @@
 package cerberusMonitor;
 
-import com.googlecode.javacv.CanvasFrame;
-import com.googlecode.javacv.OpenCVFrameGrabber;
-import com.googlecode.javacv.cpp.opencv_core;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,16 +8,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.net.InetAddress;
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
+import java.net.URL;
 
 public class MonitorController {
     private Boolean open = false;
+    private Stage settingsStage = new Stage();
+    private Stage teleopStage = new Stage();
+    private Stage mapStage = new Stage();
     public Button teleop;
     public Button retrieveData;
     public Button settings;
@@ -30,44 +32,34 @@ public class MonitorController {
     public ImageView bg;
     public ImageView menu;
 
-//    Initial Input: (** indicate selection effected)
-//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 00 80 01 F8
-//    00 00=l, FF FF=r; left roller pad
-//    onInputReport: id 0 len 14 data *00 80* FF 7F 00 80 FF 7F 00 80 00 80 01 F8
-//    00 00=u, FF FF=d; left roller pad
-//    onInputReport: id 0 len 14 data 00 80 *FF 7F* 00 80 FF 7F 00 80 00 80 01 F8
-//    00 00=l, FF FF=r; right roller pad
-//    onInputReport: id 0 len 14 data 00 80 FF 7F *00 80* FF 7F 00 80 00 80 01 F8
-//    00 00=u, FF FF=d; right roller pad
-//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 *FF 7F* 00 80 00 80 01 F8
-//    80 FF=LT, 80 00=RT
-//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F *00 80* 00 80 01 F8
-//    01=A, 02=B, 04=X, 08=Y
-//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 *00* 80 01 F8
-//    10=LB, 20=RB
-//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 *00* 80 01 F8
-//    40=back, 80=start
-//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 *00* 80 01 F8
-//    9C=l, 8C=r, 84=u, 94=d; small arrow pad
-//    onInputReport: id 0 len 14 data 00 80 FF 7F 00 80 FF 7F 00 80 00 *80* 01 F8
 
-    // Test func
+    /**** Controller Functions ****/
+
     public void pressed() throws Exception {
-        new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
+//        new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
 
-//        OpenCVFrameGrabber frameGrabber = new OpenCVFrameGrabber("http://147.158.214.168:81/index.htm");
-//        frameGrabber.setFormat("mjpeg");
-//        frameGrabber.start();
-//        opencv_core.IplImage iPimg = frameGrabber.grab();
-//        CanvasFrame canvasFrame = new CanvasFrame("Camera");
-//        canvasFrame.setCanvasSize(iPimg.width(), iPimg.height());
-//
-//        while (canvasFrame.isVisible() && (iPimg = frameGrabber.grab()) != null) {
-//            canvasFrame.showImage(iPimg);
-//        }
-//        frameGrabber.stop();
-//        canvasFrame.dispose();
-//        System.exit(0);
+//        CanvasFrame CamWindow = new CanvasFrame("Camera");
+
+//        Player player = null;
+//        String mediaFile = "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp";
+//        MediaLocator mrl= new MediaLocator(mediaFile);
+//        player = Manager.createPlayer(mrl);
+//        player.addControllerListener(this);
+
+
+        URL url = new URL("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
+        url.openConnection();
+
+        InputStream is = url.openStream();
+        BufferedImage buffImage = ImageIO.read(is);
+//        BufferedImage buffImage = ImageIO.read(url);
+        if(buffImage == null) System.out.println("null");
+        if (buffImage != null) {
+            System.out.println("in");
+            Image image = SwingFXUtils.toFXImage(buffImage, null);
+            frontView.setImage(image);
+            System.out.println("set");
+        }
     }
 
     public void menuClicked() {
@@ -103,46 +95,6 @@ public class MonitorController {
         }
     }
 
-    // changes theme color
-    public void setTheme(int color) {
-        switch (color) {
-            case 1: // red
-                Image bgRed = new Image("@../resources/bg2.png");
-                Image menuRed = new Image("@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_RED.png");
-                bg.setImage(bgRed);
-                menu.setImage(menuRed);
-                break;
-
-            default: // blue
-                Image bgBlue = new Image("@../resources/bg.png");
-                Image menuBlue = new Image("@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_BLUE.png");
-                bg.setImage(bgBlue);
-                menu.setImage(menuBlue);
-                System.out.println("SET");
-                break;
-        }
-    }
-
-    public void settingsMenu() throws Exception {
-        Stage newStage = new Stage();
-        Parent settingsMenu = FXMLLoader.load(getClass().getResource("Settings.fxml"));
-        newStage.setTitle("Settings");
-        Scene stageScene = new Scene(settingsMenu, 300, 300);
-        stageScene.getStylesheets().add("cerberusMonitor/style.css");
-        newStage.setScene(stageScene);
-        newStage.show();
-    }
-
-    public void expandMap() throws Exception {
-        Stage newStage = new Stage();
-        Parent map = FXMLLoader.load(getClass().getResource("map.fxml"));
-        newStage.setTitle("Map");
-        Scene stageScene = new Scene(map, 600, 400);
-//        stageScene.getStylesheets().add("cerberusMonitor/style.css");
-        newStage.setScene(stageScene);
-        newStage.show();
-    }
-
     public void switchCamera() {
         if(topView.isVisible()) {
             topView.setVisible(false);
@@ -155,15 +107,76 @@ public class MonitorController {
         // else if camera(s) aren't working...
     }
 
+    // changes theme color
+    public void setTheme(String color) {
+        switch (color) {
+            case "Red": // red
+                Image bgRed = new Image("resources/bg2.png");
+                Image menuRed = new Image("resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_RED.png");
+                bg.setImage(bgRed);
+                menu.setImage(menuRed);
+                break;
+
+            default: // blue
+                Image bgBlue = new Image("resources/bg.jpg");
+                Image menuBlue = new Image("resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_BLUE.png");
+                bg.setImage(bgBlue);
+                menu.setImage(menuBlue);
+                break;
+        }
+    }
+
+    // gets the current theme choice
+    public String getTheme() {
+        Image bgImage = new Image("resources/bg.jpg");
+        if(bg.getImage().equals(bgImage)) {
+            return "Blue";
+        }
+        else {
+            return "Red";
+        }
+    }
+
+    /**** Pop up Stages ****/
+
+    // opens the settings menu
+    public void settingsMenu() throws Exception {
+        Parent settingsMenu = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+        settingsStage.setTitle("Settings");
+        Scene stageScene = new Scene(settingsMenu, 300, 300);
+        stageScene.getStylesheets().add("cerberusMonitor/style.css");
+        settingsStage.setScene(stageScene);
+        settingsStage.show();
+    }
+
+    public void expandMap() throws Exception {
+        Parent map = FXMLLoader.load(getClass().getResource("map.fxml"));
+        mapStage.setTitle("Map");
+        Scene stageScene = new Scene(map, 600, 400);
+//        stageScene.getStylesheets().add("cerberusMonitor/style.css");
+        mapStage.setScene(stageScene);
+        mapStage.show();
+    }
+
     // Creates pop-up stage
     public void control() throws Exception {
-        Stage newStage = new Stage();
         Parent teleop = FXMLLoader.load(getClass().getResource("teleopScreen.fxml"));
-        newStage.setTitle("Teleoperation Screen");
+        teleopStage.setTitle("Teleoperation Screen");
         Scene stageScene = new Scene(teleop, 300, 300);
         stageScene.getStylesheets().add("cerberusMonitor/style.css");
-        newStage.setScene(stageScene);
-        newStage.show();
+        teleopStage.setScene(stageScene);
+        teleopStage.show();
+    }
+
+    // closes pop up stages created by the monitor
+    public void closePopUpStage(String stage) {
+        if (stage.equals("Settings")) {
+            settingsStage.close();
+        } else if (stage.equals("Map")) {
+            mapStage.close();
+        } else if (stage.equals("Teleop")) {
+            teleopStage.close();
+        }
     }
 
 }
