@@ -36,6 +36,13 @@ public class MonitorController {
     public ImageView bg;
     public ImageView menu;
 
+    // initialize func
+    public void initialize() {
+        System.out.println("Initializing");
+//        new Notifier("No server connected. Some functionality may be disabled.\n" +
+//                "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
+    }
+
 
     /**** Controller Functions ****/
 

@@ -10,7 +10,7 @@ import javafx.scene.control.Tooltip;
 
 import static cerberusMonitor.Main.monitorController;
 
-public class SettingsController implements java.io.Serializable {
+public class SettingsController {
 
     public ChoiceBox<String> themeChoice;
     public TextField ipaddr;
