@@ -36,8 +36,7 @@ public class SettingsController implements java.io.Serializable {
     @FXML
     private void initialize() {
         themeChoice.setItems(FXCollections.observableArrayList("Red", "Blue"));
-        themeChoice.setValue(monitorController.getTheme());
-
+        themeChoice.setValue(monitorController.getThemeColor());
     }
 
     // changes the theme

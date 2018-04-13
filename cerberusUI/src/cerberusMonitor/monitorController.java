@@ -22,6 +22,7 @@ import java.net.URL;
 
 public class MonitorController {
     private Boolean open = false;
+    private String themeColor;
     private Stage settingsStage = new Stage();
     private Stage teleopStage = new Stage();
     private Stage mapStage = new Stage();
@@ -118,6 +119,7 @@ public class MonitorController {
                 Image menuRed = new Image("resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_RED.png");
                 bg.setImage(bgRed);
                 menu.setImage(menuRed);
+                themeColor = "Red";
                 break;
 
             default: // blue
@@ -125,19 +127,17 @@ public class MonitorController {
                 Image menuBlue = new Image("resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_BLUE.png");
                 bg.setImage(bgBlue);
                 menu.setImage(menuBlue);
+                themeColor = "Blue";
                 break;
         }
     }
 
-    // gets the current theme choice
-    public String getTheme() {
-        Image bgImage = new Image("resources/bg.jpg");
-        if(bg.getImage().equals(bgImage)) {
-            return "Blue";
+    // gets current theme color
+    public String getThemeColor() {
+        if(themeColor == null) {
+            themeColor = "Blue";
         }
-        else {
-            return "Red";
-        }
+        return themeColor;
     }
 
     /**** Pop up Stages ****/
