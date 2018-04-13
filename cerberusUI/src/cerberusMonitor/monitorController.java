@@ -10,6 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import javax.media.Manager;
@@ -26,6 +28,9 @@ public class MonitorController {
     private Stage settingsStage = new Stage();
     private Stage teleopStage = new Stage();
     private Stage mapStage = new Stage();
+    private Stage securityCameraStage = new Stage();
+    private final WebView browser = new WebView();
+    private final WebEngine webEngine = browser.getEngine();
     public Button teleop;
     public Button retrieveData;
     public Button settings;
@@ -48,29 +53,26 @@ public class MonitorController {
 
     public void pressed() throws Exception {
 //        new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
-
-//        CanvasFrame CamWindow = new CanvasFrame("Camera");
-
-        Player player = null;
-        String mediaFile = "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp";
-        MediaLocator mrl= new MediaLocator(mediaFile);
-        player = Manager.createPlayer(mrl);
-//        player.addControllerListener(this);
+//        String mediaFile = "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp";
 
 
-//        URL url = new URL("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
-//        url.openConnection();
-//
-//        InputStream is = url.openStream();
-//        BufferedImage buffImage = ImageIO.read(is);
-////        BufferedImage buffImage = ImageIO.read(url);
-//        if(buffImage == null) System.out.println("null");
-//        if (buffImage != null) {
-//            System.out.println("in");
-//            Image image = SwingFXUtils.toFXImage(buffImage, null);
-//            frontView.setImage(image);
-//            System.out.println("set");
-//        }
+        // load the home page
+//        webEngine.load("http://www.oracle.com/products/index.html");
+            //add the web view to the scene
+//            getChildren().add(browser);
+
+        securityCameraStage.setTitle("Web View");
+        Scene scene = new Scene(new Browser(),750,500, Color.web("#666970"));
+        securityCameraStage.setScene(scene);
+//        scene.getStylesheets().add("webviewsample/BrowserToolbar.css");
+        securityCameraStage.show();
+
+//        securityCameraStage.setTitle("Web View");
+//        Scene stageScene = new Scene(teleop, 300, 300);
+//        stageScene.getStylesheets().add("cerberusMonitor/style.css");
+//        securityCameraStage.setScene(stageScene);
+//        securityCameraStage.show();
+
     }
 
     public void menuClicked() {
