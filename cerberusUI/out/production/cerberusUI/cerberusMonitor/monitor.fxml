@@ -13,13 +13,13 @@
    <children>
       <ImageView fx:id="bg" fitHeight="570.0" fitWidth="1214.0" layoutX="-211.0">
          <image>
-            <Image url="@../resources/bg2.png" />
+            <Image url="@../resources/bg.jpg" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#bfbfbf" height="161.0" layoutX="824.0" layoutY="16.0" stroke="BLACK" strokeType="INSIDE" width="162.0" />
       <ImageView fitHeight="153.0" fitWidth="162.0" layoutX="829.0" layoutY="20.0" onMouseClicked="#expandMap" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../resources/map.png" />
+            <Image url="@../resources/mapClean.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="590.0" fitWidth="699.0" layoutX="138.0" layoutY="30.0" opacity="0.18">
@@ -37,10 +37,10 @@
       <Button fx:id="settings" layoutX="488.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#settingsMenu" styleClass="std_btn" text="Settings" visible="false" />
       <ImageView fx:id="menu" fitHeight="71.0" fitWidth="73.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#menuClicked">
            <image>
-               <Image url="@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_RED.png" />
+               <Image url="@../resources/ic_menu_white_36dp/ic_menu_white_36dp/web/ic_menu_white_36dp_2x_BLUE.png" />
            </image>
        </ImageView>
-      <ImageView fx:id="frontView" fitHeight="394.0" fitWidth="782.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="frontView" fitHeight="394.0" fitWidth="782.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" visible="false">
           <image>
               <Image url="@../resources/frontview.jpg" />
           </image>
@@ -50,12 +50,33 @@
            <Image url="@../resources/1stview.jpg" />
        </image>
       </ImageView>
-      <ToggleButton fx:id="toggleView" layoutX="673.0" layoutY="514.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="30.0" prefWidth="91.0" text="View" visible="false">
+      <ToggleButton fx:id="toggleView" disable="true" layoutX="820.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="30.0" prefWidth="180.0" text="Switch Camera">
          <font>
             <Font size="22.0" />
          </font></ToggleButton>
       <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery: 50%" visible="false" wrappingWidth="126.99998264721944" />
-      <Text id="diag" fill="#eaff00" layoutX="845.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Running: 2 min 1 sec" wrappingWidth="126.99998264721944" />
-      <Text fx:id="connection" fill="#3bff00" layoutX="845.0" layoutY="560.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNECTED" wrappingWidth="161.99999848008156" />
+      <Text fill="#eaff00" layoutX="835.0" layoutY="489.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time Running: 0 min 42 sec" wrappingWidth="180.00000911951065">
+         <font>
+            <Font name="Courier New" size="20.0" />
+         </font></Text>
+      <Text fx:id="connection" fill="#3bff00" layoutX="883.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNECTED" wrappingWidth="161.99999848008156">
+         <font>
+            <Font name="Courier New" size="20.0" />
+         </font></Text>
+      <Text fx:id="connection1" fill="#3bff00" layoutX="835.0" layoutY="537.0" strokeType="OUTSIDE" strokeWidth="0.0" text="System NORMAL" wrappingWidth="161.99999848008156">
+         <font>
+            <Font name="Courier New" size="20.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="27.0" fitWidth="21.0" layoutX="859.0" layoutY="69.0" onMouseClicked="#expandMap" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/target_robot.png" />
+         </image>
+      </ImageView>
+      <Text fill="#eaff00" layoutX="23.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connecting cameras..." wrappingWidth="263.00000911951065">
+         <font>
+            <Font name="Courier New" size="20.0" />
+         </font>
+      </Text>
    </children>
 </Pane>

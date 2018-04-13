@@ -29,6 +29,9 @@ public class SettingsController implements java.io.Serializable {
 //            i.printStackTrace();
 //        }
     }
+//    Text {
+//        -fx-font: 20px System;
+//    }
 
     @FXML
     private void initialize() {

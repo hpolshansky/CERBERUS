@@ -12,6 +12,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import javax.media.Manager;
+import javax.media.MediaLocator;
+import javax.media.Player;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
@@ -40,26 +43,26 @@ public class MonitorController {
 
 //        CanvasFrame CamWindow = new CanvasFrame("Camera");
 
-//        Player player = null;
-//        String mediaFile = "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp";
-//        MediaLocator mrl= new MediaLocator(mediaFile);
-//        player = Manager.createPlayer(mrl);
+        Player player = null;
+        String mediaFile = "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp";
+        MediaLocator mrl= new MediaLocator(mediaFile);
+        player = Manager.createPlayer(mrl);
 //        player.addControllerListener(this);
 
 
-        URL url = new URL("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
-        url.openConnection();
-
-        InputStream is = url.openStream();
-        BufferedImage buffImage = ImageIO.read(is);
-//        BufferedImage buffImage = ImageIO.read(url);
-        if(buffImage == null) System.out.println("null");
-        if (buffImage != null) {
-            System.out.println("in");
-            Image image = SwingFXUtils.toFXImage(buffImage, null);
-            frontView.setImage(image);
-            System.out.println("set");
-        }
+//        URL url = new URL("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
+//        url.openConnection();
+//
+//        InputStream is = url.openStream();
+//        BufferedImage buffImage = ImageIO.read(is);
+////        BufferedImage buffImage = ImageIO.read(url);
+//        if(buffImage == null) System.out.println("null");
+//        if (buffImage != null) {
+//            System.out.println("in");
+//            Image image = SwingFXUtils.toFXImage(buffImage, null);
+//            frontView.setImage(image);
+//            System.out.println("set");
+//        }
     }
 
     public void menuClicked() {

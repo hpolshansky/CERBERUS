@@ -1,7 +1,3 @@
-Text {
-    -fx-font: 20px System;
-}
-
 .root {
     -fx-accent: #dc143c;
     -fx-focus-color: #dc143c;

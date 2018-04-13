@@ -10,7 +10,7 @@
    <children>
       <Text layoutX="14.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP Address:" />
       <Button layoutX="216.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#applyChanges" text="Apply" />
-      <TextField layoutX="14.0" layoutY="62.0" text="192.168.1.66" />
+      <TextField fx:id="ipaddr" layoutX="14.0" layoutY="62.0" text="192.168.1.66" />
       <ChoiceBox fx:id="themeChoice" layoutX="14.0" layoutY="136.0" prefWidth="150.0" />
       <Text layoutX="14.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Theme:" />
       <Button layoutX="129.0" layoutY="247.0" mnemonicParsing="false" onMouseClicked="#cancelChanges" text="Cancel" />

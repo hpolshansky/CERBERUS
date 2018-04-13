@@ -7,24 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/cerberusMonitor/controllerValues" />
-      <change beforePath="$PROJECT_DIR$/../HERO Serial Example1/.vs/HERO Serial Example1/v15/Server/sqlite3/storage.ide" afterPath="$PROJECT_DIR$/../HERO Serial Example1/.vs/HERO Serial Example1/v15/Server/sqlite3/storage.ide" />
-      <change beforePath="$PROJECT_DIR$/../HERO Serial Example1/.vs/HERO Serial Example1/v15/Server/sqlite3/storage.ide-shm" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../HERO Serial Example1/.vs/HERO Serial Example1/v15/Server/sqlite3/storage.ide-wal" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../HERO Serial Example1/Program.cs" afterPath="$PROJECT_DIR$/../HERO Serial Example1/Program.cs" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/Main.class" afterPath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/Main.class" />
       <change beforePath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/Settings.fxml" afterPath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/Settings.fxml" />
       <change beforePath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/SettingsController.class" afterPath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/SettingsController.class" />
       <change beforePath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/monitor.fxml" afterPath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/monitor.fxml" />
       <change beforePath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/monitorController.class" afterPath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/monitorController.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/teleopThread.class" afterPath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/teleopThread.class" />
-      <change beforePath="$PROJECT_DIR$/src/cerberusMonitor/Main.java" afterPath="$PROJECT_DIR$/src/cerberusMonitor/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/cerberusMonitor/Settings.fxml" afterPath="$PROJECT_DIR$/src/cerberusMonitor/Settings.fxml" />
+      <change beforePath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/style.css" afterPath="$PROJECT_DIR$/out/production/cerberusUI/cerberusMonitor/style.css" />
       <change beforePath="$PROJECT_DIR$/src/cerberusMonitor/SettingsController.java" afterPath="$PROJECT_DIR$/src/cerberusMonitor/SettingsController.java" />
       <change beforePath="$PROJECT_DIR$/src/cerberusMonitor/monitor.fxml" afterPath="$PROJECT_DIR$/src/cerberusMonitor/monitor.fxml" />
       <change beforePath="$PROJECT_DIR$/src/cerberusMonitor/monitorController.java" afterPath="$PROJECT_DIR$/src/cerberusMonitor/monitorController.java" />
-      <change beforePath="$PROJECT_DIR$/src/cerberusMonitor/teleopThread.java" afterPath="$PROJECT_DIR$/src/cerberusMonitor/teleopThread.java" />
+      <change beforePath="$PROJECT_DIR$/src/cerberusMonitor/style.css" afterPath="$PROJECT_DIR$/src/cerberusMonitor/style.css" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,63 +82,71 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="250">
+              <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MonitorController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MonitorController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/MonitorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="1125">
+              <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Settings.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/Settings.fxml">
+          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
           <provider editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="450">
               <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
-          </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SettingsController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/SettingsController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="160">
+              <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
               <folding>
-                <element signature="e#1259#1260#0" expanded="true" />
-                <element signature="e#1325#1326#0" expanded="true" />
-                <element signature="e#1449#1450#0" expanded="true" />
-                <element signature="e#1510#1511#0" expanded="true" />
+                <element signature="e#1313#1314#0" expanded="true" />
+                <element signature="e#1379#1380#0" expanded="true" />
+                <element signature="e#1503#1504#0" expanded="true" />
+                <element signature="e#1564#1565#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monitor.fxml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="monitor.fxml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/monitor.fxml">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="950">
-              <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="475">
+              <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
               <folding />
             </state>
           </provider>
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -171,6 +171,7 @@
       <find>5,</find>
       <find>fill</find>
       <find>COLOR</find>
+      <find>CONNEcted</find>
     </findStrings>
   </component>
   <component name="FindManager">
@@ -216,16 +217,16 @@
         <option value="$PROJECT_DIR$/src/cerberusMonitor/Notifier.java" />
         <option value="$PROJECT_DIR$/src/cerberusMonitor/teleopScreen.fxml" />
         <option value="$PROJECT_DIR$/src/cerberusMonitor/MapController.java" />
-        <option value="$PROJECT_DIR$/src/cerberusMonitor/style.css" />
         <option value="$PROJECT_DIR$/src/cerberusMonitor/CommClient.java" />
         <option value="$PROJECT_DIR$/src/cerberusMonitor/Client.java" />
         <option value="$PROJECT_DIR$/src/cerberusMonitor/TeleopThread.java" />
         <option value="$PROJECT_DIR$/src/cerberusMonitor/Settings.fxml" />
-        <option value="$PROJECT_DIR$/src/cerberusMonitor/SettingsController.java" />
         <option value="$PROJECT_DIR$/src/cerberusMonitor/Main.java" />
-        <option value="$PROJECT_DIR$/src/cerberusMonitor/monitor.fxml" />
-        <option value="$PROJECT_DIR$/src/cerberusMonitor/MonitorController.java" />
         <option value="$PROJECT_DIR$/src/cerberusMonitor/controllerValues" />
+        <option value="$PROJECT_DIR$/src/cerberusMonitor/MonitorController.java" />
+        <option value="$PROJECT_DIR$/src/cerberusMonitor/style.css" />
+        <option value="$PROJECT_DIR$/src/cerberusMonitor/SettingsController.java" />
+        <option value="$PROJECT_DIR$/src/cerberusMonitor/monitor.fxml" />
       </list>
     </option>
   </component>
@@ -367,13 +368,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="cerberusUI" type="b2602c69:ProjectViewProjectNode" />
               <item name="cerberusUI" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cerberusUI" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cerberusUI" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cerberusUI" type="b2602c69:ProjectViewProjectNode" />
@@ -396,8 +404,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -727,7 +733,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -908,13 +913,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/lib/purejavahidapi-src.jar!/purejavahidapi/InputReportListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
@@ -940,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="381" column="29" lean-forward="false" selection-start-line="381" selection-start-column="29" selection-end-line="381" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -969,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="77" column="1" lean-forward="true" selection-start-line="77" selection-start-column="1" selection-end-line="77" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -977,10 +973,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="2234" column="17" lean-forward="false" selection-start-line="2234" selection-start-column="17" selection-end-line="2234" selection-end-column="17" />
-          <folding>
-            <element signature="e#83880#83881#0" expanded="false" />
-            <element signature="e#83916#83917#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1001,7 +993,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="5" lean-forward="false" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1009,7 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1031,7 +1021,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="977" column="25" lean-forward="false" selection-start-line="977" selection-start-column="25" selection-end-line="977" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1039,7 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="605">
           <caret line="83" column="32" lean-forward="false" selection-start-line="83" selection-start-column="32" selection-end-line="83" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1047,7 +1035,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="1385" column="32" lean-forward="false" selection-start-line="1385" selection-start-column="32" selection-end-line="1385" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,7 +1049,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-300">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1070,7 +1056,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="697">
           <caret line="107" column="9" lean-forward="false" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1078,7 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-175">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1087,40 +1071,8 @@
         <state />
       </provider>
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="450">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/SettingsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#1259#1260#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1449#1450#0" expanded="true" />
-            <element signature="e#1510#1511#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/monitor.fxml">
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -1129,17 +1081,54 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/MonitorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        <state relative-caret-position="1125">
+          <caret line="63" column="20" lean-forward="false" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/SettingsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="36" column="31" lean-forward="true" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1313#1314#0" expanded="true" />
+            <element signature="e#1379#1380#0" expanded="true" />
+            <element signature="e#1503#1504#0" expanded="true" />
+            <element signature="e#1564#1565#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/cerberusMonitor/monitor.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
