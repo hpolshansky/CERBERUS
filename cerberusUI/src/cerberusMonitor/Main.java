@@ -5,7 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.net.InetAddress;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class Main extends Application {
     static MonitorController monitorController;
@@ -26,10 +32,11 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        IPAddress ip = new IPAddress();
-        DataObject dobj = new DataObject();
-        ip.setIpaddr("192.168.1.1");
-        dobj.setIpAddr(ip);
+        CERBERUSLogger.log(Level.INFO, CERBERUSLogger.class.getName()+" has started successfully.");
+//        IPAddress ip = new IPAddress();
+//        DataObject dobj = new DataObject();
+//        ip.setIpaddr("192.168.1.1");
+//        dobj.setIpAddr(ip);
 //        try {
 //            // use server IP Address
 //            IPAddress ip = ;

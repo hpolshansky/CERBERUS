@@ -3,6 +3,7 @@ import serial
 import socket
 import sys
 import time
+import logging
 
 print("SERVER RUNNING")
 
@@ -11,6 +12,17 @@ if __name__ == "__main__":
 	IPADDR = "192.168.1.66" #IP ADDR
 	size = 6
 	c = 0
+
+	# setup logger
+	logger = logging.getLogger('log')
+	logging.basicConfig(filename='CERBERUS.log', format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s', level=logging.DEBUG)
+	handler = logging.StreamHandler()
+	formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
+	handler.setFormatter(formatter)
+	logger.addHandler(handler)
+#	logger.setLevel(logging.DEBUG)
+
+	logger.debug('Logger started successfully')
 
 	# connect to serial port
 	ser = serial.serial_for_url('/dev/ttyUSB0', do_not_open=True)
