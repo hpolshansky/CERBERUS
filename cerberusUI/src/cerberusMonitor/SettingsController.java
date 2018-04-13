@@ -14,6 +14,8 @@ public class SettingsController {
 
     public ChoiceBox<String> themeChoice;
     public TextField ipaddr;
+    DataStorage ds = new DataStorage();
+    DataObject dobj = new DataObject();
 
     public void saveSettings() {
         // serializing the settings
@@ -37,6 +39,7 @@ public class SettingsController {
     private void initialize() {
         themeChoice.setItems(FXCollections.observableArrayList("Red", "Blue"));
         themeChoice.setValue(monitorController.getThemeColor());
+        ipaddr.setText(dobj.getIpAddr().toString());
     }
 
     // changes the theme
@@ -44,8 +47,9 @@ public class SettingsController {
         monitorController.setTheme(themeChoice.getValue());
     }
 
-    public void applyChanges() {
+    public void applyChanges() throws Exception {
         changeTheme();
+        ds.storeData(dobj);
 //        saveSettings();
     }
 

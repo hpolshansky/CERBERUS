@@ -26,6 +26,10 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        IPAddress ip = new IPAddress();
+        DataObject dobj = new DataObject();
+        ip.setIpaddr("192.168.1.1");
+        dobj.setIpAddr(ip);
 //        try {
 //            // use server IP Address
 //            IPAddress ip = ;

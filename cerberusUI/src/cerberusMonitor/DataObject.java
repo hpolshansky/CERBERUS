@@ -6,8 +6,8 @@ public class DataObject implements Serializable{
     private IPAddress ipAddr;
 
     // constructor
-    public DataObject(IPAddress ipAddr) {
-        this.ipAddr = ipAddr;
+    public DataObject() {
+        ipAddr = getIpAddr();
     }
 
     public IPAddress getIpAddr() {

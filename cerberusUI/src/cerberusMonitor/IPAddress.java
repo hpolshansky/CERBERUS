@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 public class IPAddress implements java.io.Serializable {
-    public String ipaddr;
+    private String ipaddr;
 
     public IPAddress() {
         ipaddr = "";
