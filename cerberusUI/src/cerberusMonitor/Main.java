@@ -37,15 +37,16 @@ public class Main extends Application {
 //        DataObject dobj = new DataObject();
 //        ip.setIpaddr("192.168.1.1");
 //        dobj.setIpAddr(ip);
-//        try {
-//            // use server IP Address
-//            IPAddress ip = ;
-//
+        try {
+            // use server IP Address
+            // IPAddress ip = ;
+
 //            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
-//            c.start(c);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2001"));
+            c.start(c);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //        new Notifier("No server connected. Some functionality may be disabled.\n" +
 //                "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
         launch(args);

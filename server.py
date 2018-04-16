@@ -4,6 +4,7 @@ import socket
 import sys
 import time
 import logging
+import os
 
 print("SERVER RUNNING")
 
@@ -11,17 +12,21 @@ if __name__ == "__main__":
 	PORT = 2000
 	IPADDR = "192.168.1.66" #IP ADDR
 	size = 6
-	c = 0
+	filename = 'CERBERUS.log'
+	switch_file = 0
+
+	# check log file size if exists
+	if os.path.isfile(filename):
+		statinfo = os.stat('CERBERUS.log')
+		print(statinfo.st_size)
+		# if the log file becomes bigger than 2GB 
+		if statinfo.st_size >= 2000000000:
+			switch_file = 1
+			filename = 'CERBERUS_extra.log'
 
 	# setup logger
 	logger = logging.getLogger('log')
-	logging.basicConfig(filename='CERBERUS.log', format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s', level=logging.DEBUG)
-	handler = logging.StreamHandler()
-	formatter = logging.Formatter('%(asctime)s %(name)-12s %(levelname)-8s %(message)s')
-	handler.setFormatter(formatter)
-	logger.addHandler(handler)
-#	logger.setLevel(logging.DEBUG)
-
+	logging.basicConfig(filename=filename, format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s', level=logging.DEBUG)
 	logger.debug('Logger started successfully')
 
 	# connect to serial port
@@ -31,7 +36,7 @@ if __name__ == "__main__":
 	try:
 		ser.open()
 	except serial.SerialException as e:
-		sys.stderr.write('Could not open serial port {}: {}\n'.format(ser.name, e))
+		logger.debug('Could not open serial port {}: {}'.format(ser.name, e))
 		sys.exit(1)
 
 	server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -43,6 +48,7 @@ if __name__ == "__main__":
 		client, address = server_socket.accept()
 #		client.setblocking(0)
 		client.settimeout(0.05)
+		logger.debug('WAITNG TO ESTABLISH CLIENT...')
 		while 1:
 			try:
 				data = client.recv(size)
@@ -55,10 +61,14 @@ if __name__ == "__main__":
 			try:
 				x = ser.read(3)
 				client.send(x)
+				logger.debug('DATA->CLIENT' + x)
+				if switch_file == 1:
+					client.send(b'\x02')
 			# occurs when client disconnects
 			except socket.error:
 				client.close()
+				logger.debug('CLIENT DISCONNECTED')
 				break
-	x = b'\x00'
-	client.send(x)
+	client.send(b'\x00')
+	logger.debug('SERVER STOPPED')
 	server_socket.close()
