@@ -28,6 +28,7 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.show();
+        VLCUtil.discover();
     }
 
 
@@ -50,5 +51,10 @@ public class Main extends Application {
 //        new Notifier("No server connected. Some functionality may be disabled.\n" +
 //                "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
         launch(args);
+    }
+
+    @Override
+    public void stop() {
+        monitorController.stopMedia();
     }
 }
