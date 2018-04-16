@@ -13,13 +13,11 @@ public class VLCUtil {
      * VLC lib discovery method for current OS.
      */
     public static void discover() {
-        String osName = "";
-
-        if (isMac()) osName = "Running on OS X";
-        if (isUnix()) osName = "Running on Unix";
-        if (isWindows()) osName = "Running on Windows";
-
-        System.out.println(osName);
+//        String osName = "";
+//        if (isMac()) osName = "Running on OS X";
+//        if (isUnix()) osName = "Running on Unix";
+//        if (isWindows()) osName = "Running on Windows";
+//        System.out.println(osName);
 
         new NativeDiscovery().discover();
     }
@@ -83,15 +81,15 @@ public class VLCUtil {
         }
     }
 
-    public static boolean isWindows() {
+    private static boolean isWindows() {
         return (OS.contains("win"));
     }
 
-    public static boolean isMac() {
+    private static boolean isMac() {
         return (OS.contains("mac"));
     }
 
-    public static boolean isUnix() {
+    private static boolean isUnix() {
         return (OS.contains("nux"));
     }
 }

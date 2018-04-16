@@ -1,2 +1,12 @@
 Apr 16, 2018 12:34:20 AM cerberusMonitor.CERBERUSLogger log
 INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 16, 2018 12:37:28 AM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 16, 2018 12:37:49 AM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 16, 2018 12:41:25 AM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 16, 2018 12:42:07 AM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 16, 2018 1:59:26 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.

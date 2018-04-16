@@ -45,9 +45,6 @@ public class MonitorController {
     public ImageView menu;
 
     @FXML
-    public BorderPane pane;
-
-    @FXML
     public GridPane gridPane;
 
     private VideoPlayer player;
@@ -207,6 +204,7 @@ public class MonitorController {
         player = new VideoPlayer("test");
         gridPane.getChildren().add(player);
         player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
+//        player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
         player.setVolume(1);
     }
 
