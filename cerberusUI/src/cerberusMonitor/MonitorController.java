@@ -1,6 +1,7 @@
 package cerberusMonitor;
 
 import javafx.embed.swing.SwingFXUtils;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
@@ -40,6 +43,14 @@ public class MonitorController {
     public Text connection;
     public ImageView bg;
     public ImageView menu;
+
+    @FXML
+    public BorderPane pane;
+
+    @FXML
+    public GridPane gridPane;
+
+    private VideoPlayer player;
 
     // initialize func
     public void initialize() {
@@ -188,6 +199,21 @@ public class MonitorController {
             mapStage.close();
         } else if (stage.equals("Teleop")) {
             teleopStage.close();
+        }
+    }
+
+    @FXML
+    public void playMedia() {
+        player = new VideoPlayer("test");
+        gridPane.getChildren().add(player);
+        player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
+        player.setVolume(1);
+    }
+
+    @FXML
+    public void stopMedia() {
+        if (player != null) {
+            player.release();
         }
     }
 
