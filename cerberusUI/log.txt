@@ -1,0 +1,2 @@
+Apr 16, 2018 12:34:20 AM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.

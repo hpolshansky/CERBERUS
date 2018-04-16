@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.net.InetAddress;
+import java.util.logging.Level;
 
 public class Main extends Application {
     static MonitorController monitorController;
@@ -35,6 +35,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        CERBERUSLogger.log(Level.INFO, CERBERUSLogger.class.getName()+" has started successfully.");
 //        try {
 //            // use server IP Address
 //            IPAddress ip = new IPAddress();
