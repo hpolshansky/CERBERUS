@@ -4,47 +4,27 @@
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.layout.VBox?>
-
-<VBox maxHeight="300" maxWidth="400" minHeight="240.0" minWidth="320.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cerberusMonitor.MonitorController">
-    <children>
-      <BorderPane fx:id="pane" maxHeight="300" maxWidth="400" minHeight="10.0" minWidth="10.0" VBox.vgrow="ALWAYS">
-         <center>
-            <GridPane fx:id="gridPane" gridLinesVisible="true" BorderPane.alignment="CENTER">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-            </GridPane>
-         </center></BorderPane>
-      <HBox prefHeight="30.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#playMedia" text="Play">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#stopMedia" text="Stop">
-               <HBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-   </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cerberusMonitor.MonitorController">
+    <!--<VBox maxHeight="300" maxWidth="400" minHeight="240.0" minWidth="320.0">-->
+        <!--<children>-->
+            <!--<GridPane fx:id="gridPane" gridLinesVisible="true" BorderPane.alignment="CENTER">-->
+               <!--<columnConstraints>-->
+                  <!--<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />-->
+               <!--</columnConstraints>-->
+               <!--<rowConstraints>-->
+                  <!--<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />-->
+               <!--</rowConstraints>-->
+            <!--</GridPane>-->
+       <!--</children>-->
 
 
    <children>
@@ -78,31 +58,26 @@
            </image>
        </ImageView>
 
+       
+       <GridPane fx:id="securityCamera" layoutX="24.0" layoutY="91.0" prefHeight="394.0" prefWidth="763.0" visible="false" BorderPane.alignment="CENTER">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+       </GridPane>
+       <GridPane fx:id="zedCamera" layoutX="24.0" layoutY="91.0" prefHeight="394.0" prefWidth="763.0" visible="false" BorderPane.alignment="CENTER">
+           <columnConstraints>
+               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+           </columnConstraints>
+           <rowConstraints>
+               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+           </rowConstraints>
+       </GridPane>
 
 
-
-
-
-
-
-
-      <ImageView fx:id="frontView" fitHeight="394.0" fitWidth="782.0" layoutX="23.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" visible="false">
-          <image>
-              <Image url="@../resources/frontview.jpg" />
-          </image>
-      </ImageView>
-
-
-
-
-
-
-      <ImageView fx:id="topView" fitHeight="394.0" fitWidth="795.0" layoutX="64.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" visible="false">
-       <image>
-           <Image url="@../resources/1stview.jpg" />
-       </image>
-      </ImageView>
-      <ToggleButton fx:id="toggleView" disable="true" layoutX="820.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="30.0" prefWidth="180.0" text="Switch Camera">
+      <ToggleButton fx:id="toggleView" layoutX="820.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="30.0" prefWidth="180.0" text="Switch Camera">
          <font>
             <Font size="22.0" />
          </font></ToggleButton>
@@ -125,10 +100,31 @@
             <Image url="@../resources/target_robot.png" />
          </image>
       </ImageView>
-      <Text fill="#eaff00" layoutX="23.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Connecting cameras..." wrappingWidth="263.00000911951065">
-         <font>
-            <Font name="Courier New" size="20.0" />
-         </font>
-      </Text>
+      <ImageView fitHeight="64.0" fitWidth="63.0" layoutX="875.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/ic_fiber_manual_record_white_36dp/web/ic_fiber_manual_record_white_36dp_2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="95.0" layoutX="858.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/ic_keyboard_arrow_down_white_36dp/web/ic_keyboard_arrow_down_white_36dp_2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="95.0" layoutX="801.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/ic_keyboard_arrow_left_white_36dp/web/ic_keyboard_arrow_left_white_36dp_2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="95.0" layoutX="917.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/ic_keyboard_arrow_right_white_36dp/web/ic_keyboard_arrow_right_white_36dp_2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="95.0" layoutX="859.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/ic_keyboard_arrow_up_white_36dp/web/ic_keyboard_arrow_up_white_36dp_2x.png" />
+         </image>
+      </ImageView>
    </children>
-</VBox>
+<!--</VBox>-->
+</Pane>

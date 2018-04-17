@@ -1,7 +1,5 @@
 package cerberusMonitor;
 
-import javafx.embed.swing.SwingFXUtils;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,45 +7,34 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
-import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import javax.imageio.ImageIO;
-import javax.media.Manager;
-import javax.media.MediaLocator;
-import javax.media.Player;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.InputStream;
-import java.net.URL;
+
+import java.util.logging.Level;
 
 public class MonitorController {
     private Boolean open = false;
     private String themeColor;
+    private VideoPlayer player;
     private Stage settingsStage = new Stage();
     private Stage teleopStage = new Stage();
     private Stage mapStage = new Stage();
-    private Stage securityCameraStage = new Stage();
-    private final WebView browser = new WebView();
-    private final WebEngine webEngine = browser.getEngine();
+//    private Stage securityCameraStage = new Stage();
+//    private final WebView browser = new WebView();
+//    private final WebEngine webEngine = browser.getEngine();
     public Button teleop;
     public Button retrieveData;
     public Button settings;
     public ToggleButton toggleView;
-    public ImageView frontView;
-    public ImageView topView;
     public Text connection;
     public ImageView bg;
     public ImageView menu;
+    public GridPane securityCamera;
+    public GridPane zedCamera;
+    SecurityCamera sc = new SecurityCamera();
 
-    @FXML
-    public GridPane gridPane;
-
-    private VideoPlayer player;
 
     // initialize func
     public void initialize() {
@@ -61,26 +48,13 @@ public class MonitorController {
 
     public void pressed() throws Exception {
 //        new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
-//        String mediaFile = "rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp";
-
-
-        // load the home page
-//        webEngine.load("http://www.oracle.com/products/index.html");
-            //add the web view to the scene
-//            getChildren().add(browser);
-
-        securityCameraStage.setTitle("Web View");
-        Scene scene = new Scene(new Browser(),750,500, Color.web("#666970"));
-        securityCameraStage.setScene(scene);
-//        scene.getStylesheets().add("webviewsample/BrowserToolbar.css");
-        securityCameraStage.show();
-
 //        securityCameraStage.setTitle("Web View");
-//        Scene stageScene = new Scene(teleop, 300, 300);
-//        stageScene.getStylesheets().add("cerberusMonitor/style.css");
-//        securityCameraStage.setScene(stageScene);
+//        Scene scene = new Scene(new Browser(),750,500, Color.web("#666970"));
+//        securityCameraStage.setScene(scene);
 //        securityCameraStage.show();
 
+        securityCamera.setVisible(true);
+        playSecurityMedia();
     }
 
     public void menuClicked() {
@@ -109,23 +83,49 @@ public class MonitorController {
         if (s) {
             connection.setText("CONNECTED");
             connection.setFill(Color.valueOf("#3bff00"));
+            CERBERUSLogger.log(Level.WARNING, "Server is connected");
         }
         else {
             connection.setText("DISCONNECTED");
             connection.setFill(Color.valueOf("#eaff00"));
+            CERBERUSLogger.log(Level.WARNING, "Server is disconnected");
         }
     }
 
+    // changes the camera views
     public void switchCamera() {
-        if(topView.isVisible()) {
-            topView.setVisible(false);
-            frontView.setVisible(true);
+        if(securityCamera.isVisible()) {
+            stopMedia();
+            securityCamera.setVisible(false);
+            playZedMedia();
+            zedCamera.setVisible(true);
         }
-        else if(!topView.isVisible()) {
-            frontView.setVisible(false);
-            topView.setVisible(true);
+        else if(!securityCamera.isVisible()) {
+            stopMedia();
+            zedCamera.setVisible(false);
+            playSecurityMedia();
+            securityCamera.setVisible(true);
         }
-        // else if camera(s) aren't working...
+    }
+
+    public void playSecurityMedia() {
+        player = new VideoPlayer("Security Camera (PTZ)");
+        securityCamera.getChildren().add(player);
+        player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
+        player.setVolume(1);
+    }
+
+    public void playZedMedia() {
+        player = new VideoPlayer("Zed (Fixed)");
+        securityCamera.getChildren().add(player);
+        player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
+        player.setVolume(1);
+    }
+
+    public void stopMedia() {
+        if (player != null) {
+            player.release();
+        }
     }
 
     // changes theme color
@@ -196,22 +196,6 @@ public class MonitorController {
             mapStage.close();
         } else if (stage.equals("Teleop")) {
             teleopStage.close();
-        }
-    }
-
-    @FXML
-    public void playMedia() {
-        player = new VideoPlayer("test");
-        gridPane.getChildren().add(player);
-        player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
-//        player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
-        player.setVolume(1);
-    }
-
-    @FXML
-    public void stopMedia() {
-        if (player != null) {
-            player.release();
         }
     }
 

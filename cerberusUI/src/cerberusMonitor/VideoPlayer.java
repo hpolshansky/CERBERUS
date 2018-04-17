@@ -88,7 +88,7 @@ public class VideoPlayer extends BorderPane {
         arguments.add("--sout-keep");
         arguments.add("--verbose=2");
 
-        canvas = new RWImageView(160, 160); // TODO: size???
+        canvas = new RWImageView(500, 500); // TODO: size???
         pixelWriter = canvas.getPixelWriter();
 
 

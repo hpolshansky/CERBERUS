@@ -1,12 +1,9 @@
 package cerberusMonitor;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Tooltip;
 
 import static cerberusMonitor.Main.monitorController;
 
@@ -39,7 +36,7 @@ public class SettingsController {
     private void initialize() {
         themeChoice.setItems(FXCollections.observableArrayList("Red", "Blue"));
         themeChoice.setValue(monitorController.getThemeColor());
-        ipaddr.setText(dobj.getIpAddr().toString());
+//        ipaddr.setText(dobj.getIpAddr().toString());
     }
 
     // changes the theme
