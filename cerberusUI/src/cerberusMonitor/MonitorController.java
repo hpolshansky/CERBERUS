@@ -46,7 +46,7 @@ public class MonitorController {
 
     /**** Controller Functions ****/
 
-    public void pressed() throws Exception {
+    public void retrieveData() throws Exception {
 //        new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
 //        securityCameraStage.setTitle("Web View");
 //        Scene scene = new Scene(new Browser(),750,500, Color.web("#666970"));
@@ -106,6 +106,34 @@ public class MonitorController {
             playSecurityMedia();
             securityCamera.setVisible(true);
         }
+    }
+
+    public void panLeft() {
+        sc.moveCamera(1);
+    }
+
+    public void panRight() {
+        sc.moveCamera(2);
+    }
+
+    public void panUp() {
+        sc.moveCamera(3);
+    }
+
+    public void panDown() {
+        sc.moveCamera(4);
+    }
+
+    public void zoomOutCamera() {
+        sc.moveCamera(5);
+    }
+
+    public void zoomInCamera() {
+        sc.moveCamera(6);
+    }
+
+    public void stopCamera() {
+        sc.stopCamera();
     }
 
     public void playSecurityMedia() {

@@ -50,7 +50,7 @@
          </image>
       </ImageView>
       <Button fx:id="teleop" layoutX="104.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#control" prefHeight="45.0" styleClass="std_btn" text="Teleoperation" visible="false" />
-      <Button fx:id="retrieveData" layoutX="297.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#pressed" styleClass="std_btn" text="Retrieve Data" visible="false" />
+      <Button fx:id="retrieveData" layoutX="297.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#retrieveData" styleClass="std_btn" text="Retrieve Data" visible="false" />
       <Button fx:id="settings" layoutX="488.0" layoutY="20.0" mnemonicParsing="false" onMouseClicked="#settingsMenu" styleClass="std_btn" text="Settings" visible="false" />
       <ImageView fx:id="menu" fitHeight="71.0" fitWidth="73.0" layoutX="14.0" layoutY="20.0" onMouseClicked="#menuClicked">
            <image>
@@ -100,29 +100,34 @@
             <Image url="@../resources/target_robot.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="64.0" fitWidth="63.0" layoutX="875.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../resources/ic_fiber_manual_record_white_36dp/web/ic_fiber_manual_record_white_36dp_2x.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="95.0" layoutX="858.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="backwardTilt" fitHeight="150.0" fitWidth="95.0" layoutX="858.0" layoutY="358.0" onMousePressed="#panDown" onMouseReleased="#stopCamera" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/ic_keyboard_arrow_down_white_36dp/web/ic_keyboard_arrow_down_white_36dp_2x.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="95.0" layoutX="801.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="leftPan" fitHeight="150.0" fitWidth="95.0" layoutX="801.0" layoutY="304.0" onMousePressed="#panLeft" onMouseReleased="#stopCamera" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/ic_keyboard_arrow_left_white_36dp/web/ic_keyboard_arrow_left_white_36dp_2x.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="95.0" layoutX="917.0" layoutY="304.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="rightPan" fitHeight="150.0" fitWidth="95.0" layoutX="917.0" layoutY="304.0" onMousePressed="#panRight" onMouseReleased="#stopCamera" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/ic_keyboard_arrow_right_white_36dp/web/ic_keyboard_arrow_right_white_36dp_2x.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="95.0" layoutX="859.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="forwardTilt" fitHeight="150.0" fitWidth="95.0" layoutX="859.0" layoutY="242.0" onMousePressed="#panUp" onMouseReleased="#stopCamera" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/ic_keyboard_arrow_up_white_36dp/web/ic_keyboard_arrow_up_white_36dp_2x.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="40.0" layoutX="863.0" layoutY="311.0" onMousePressed="#zoomInCamera" onMouseReleased="#stopCamera" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/ic_fiber_manual_record_white_36dp/web/plus_semi_circle.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="80.0" fitWidth="39.0" layoutX="912.0" layoutY="310.0" onMousePressed="#zoomOutCamera" onMouseReleased="#stopCamera" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/ic_fiber_manual_record_white_36dp/web/minus_semi_circle.png" />
          </image>
       </ImageView>
    </children>

@@ -19,7 +19,6 @@ public class SecurityCamera {
 //        this.hostIp = hostIp;
 //        this.user = user;
 //        this.pass = pass;
-
         try {
             nvt = new OnvifDevice(hostIp, user, pass);
             pToken = nvt.getDevices().getProfiles().get(0).getToken();
@@ -30,12 +29,33 @@ public class SecurityCamera {
     }
 
     // moves camera
-    public void moveCamera() {
-        ptzDevices.continuousMove(pToken, 1.0f, 1.0f, 0.0f);
+    // x: left = -1    right = 1
+    // y: up = -1    down = 1
+    public void moveCamera(int direction) {
+        switch (direction) {
+            case 1:
+                ptzDevices.continuousMove(pToken, -1.0f, 0.0f, 0.0f);
+                break;
+            case 2:
+                ptzDevices.continuousMove(pToken, 1.0f, 0.0f, 0.0f);
+                break;
+            case 3:
+                ptzDevices.continuousMove(pToken, 0.0f, 1.0f, 0.0f);
+                break;
+            case 4:
+                ptzDevices.continuousMove(pToken, 0.0f, -1.0f, 0.0f);
+                break;
+            case 5:
+                ptzDevices.continuousMove(pToken, 0.0f, 0.0f, -1.0f);
+                break;
+            case 6:
+                ptzDevices.continuousMove(pToken, 0.0f, 0.0f, 1.0f);
+                break;
+        }
     }
 
     // stop camera functions
-    public void stopCamera(String profileToken) {
-        ptzDevices.stopMove(profileToken);
+    public void stopCamera() {
+        ptzDevices.stopMove(pToken);
     }
 }
