@@ -2,7 +2,6 @@ package cerberusMonitor;
 
 import de.onvif.soap.OnvifDevice;
 import de.onvif.soap.devices.PtzDevices;
-
 import javax.xml.soap.SOAPException;
 import java.net.ConnectException;
 

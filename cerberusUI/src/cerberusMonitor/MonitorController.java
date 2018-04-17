@@ -9,9 +9,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
 import java.util.logging.Level;
 
 public class MonitorController {
@@ -21,9 +23,7 @@ public class MonitorController {
     private Stage settingsStage = new Stage();
     private Stage teleopStage = new Stage();
     private Stage mapStage = new Stage();
-//    private Stage securityCameraStage = new Stage();
-//    private final WebView browser = new WebView();
-//    private final WebEngine webEngine = browser.getEngine();
+    private SecurityCamera sc = new SecurityCamera();
     public Button teleop;
     public Button retrieveData;
     public Button settings;
@@ -31,14 +31,32 @@ public class MonitorController {
     public Text connection;
     public ImageView bg;
     public ImageView menu;
+    public ImageView forwardTilt;
+    public ImageView backwardTilt;
+    public ImageView leftPan;
+    public ImageView rightPan;
+    public ImageView zoomIn;
+    public ImageView zoomOut;
+    public Shape showDisabledCameraBtns;
     public GridPane securityCamera;
     public GridPane zedCamera;
-    SecurityCamera sc = new SecurityCamera();
+    public Text systemStatus;
+
 
 
     // initialize func
     public void initialize() {
         System.out.println("Initializing");
+        try {
+            securityCamera.setVisible(true);
+            playSecurityMedia();
+        } catch (Exception e) {
+            CERBERUSLogger.log(Level.WARNING, Arrays.toString(e.getStackTrace()));
+            systemStatus.setText("System Error");
+            systemStatus.setFill(Color.RED);
+            disablePTZ();
+        }
+        // put this on top
 //        new Notifier("No server connected. Some functionality may be disabled.\n" +
 //                "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
     }
@@ -46,15 +64,14 @@ public class MonitorController {
 
     /**** Controller Functions ****/
 
-    public void retrieveData() throws Exception {
+    // download log file and video?? from server
+    public void retrieveData() {
 //        new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
-//        securityCameraStage.setTitle("Web View");
-//        Scene scene = new Scene(new Browser(),750,500, Color.web("#666970"));
-//        securityCameraStage.setScene(scene);
-//        securityCameraStage.show();
+    }
 
-        securityCamera.setVisible(true);
-        playSecurityMedia();
+    // Estimates battery life TODO
+    public void batteryLifeEstimation() {
+
     }
 
     public void menuClicked() {
@@ -108,6 +125,8 @@ public class MonitorController {
         }
     }
 
+    /* Camera functions */
+
     public void panLeft() {
         sc.moveCamera(1);
     }
@@ -136,6 +155,28 @@ public class MonitorController {
         sc.stopCamera();
     }
 
+    public void disablePTZ() {
+        toggleView.setDisable(true);
+        forwardTilt.setDisable(true);
+        backwardTilt.setDisable(true);
+        leftPan.setDisable(true);
+        rightPan.setDisable(true);
+        zoomIn.setDisable(true);
+        zoomOut.setDisable(true);
+        showDisabledCameraBtns.setVisible(true);
+    }
+
+    public void enablePTZ() {
+        toggleView.setDisable(false);
+        forwardTilt.setDisable(false);
+        backwardTilt.setDisable(false);
+        leftPan.setDisable(false);
+        rightPan.setDisable(false);
+        zoomIn.setDisable(false);
+        zoomOut.setDisable(false);
+        showDisabledCameraBtns.setVisible(false);
+    }
+
     public void playSecurityMedia() {
         player = new VideoPlayer("Security Camera (PTZ)");
         securityCamera.getChildren().add(player);
@@ -143,6 +184,7 @@ public class MonitorController {
         player.setVolume(1);
     }
 
+    // TODO: get ZED camera on there
     public void playZedMedia() {
         player = new VideoPlayer("Zed (Fixed)");
         securityCamera.getChildren().add(player);

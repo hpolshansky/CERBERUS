@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.util.logging.Level;
 
 public class Main extends Application {
@@ -38,7 +39,7 @@ public class Main extends Application {
         CERBERUSLogger.log(Level.INFO, CERBERUSLogger.class.getName()+" has started successfully.");
 //        try {
 //            // use server IP Address
-//            IPAddress ip = new IPAddress();
+////            IPAddress ip = new IPAddress();
 //
 //            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
 //            c.start(c);
