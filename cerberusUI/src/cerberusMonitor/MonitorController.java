@@ -22,7 +22,7 @@ public class MonitorController {
     private Stage settingsStage = new Stage();
     private Stage teleopStage = new Stage();
     private Stage mapStage = new Stage();
-    private SecurityCamera sc = new SecurityCamera();
+    protected SecurityCamera sc; // = new SecurityCamera();;
     public Button teleop;
     public Button retrieveData;
     public Button settings;
@@ -42,15 +42,17 @@ public class MonitorController {
     public Text systemStatus;
     public Text connection;
 
-    
+
     // initialize func
     public void initialize() {
         System.out.println("Initializing");
         connectCamera();
+//        disablePTZ();
         // put this on top
 //        new Notifier("No server connected. Some functionality may be disabled.\n" +
 //                "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
     }
+
 
 
     /**** Controller Functions ****/
@@ -119,19 +121,25 @@ public class MonitorController {
 
     // tries to connect to camera
     public void connectCamera() {
+        boolean scRunning = false;
         try {
+            sc = new SecurityCamera();
             securityCamera.setVisible(true);
-            playSecurityMedia();
             enablePTZ();
             CERBERUSLogger.log(Level.INFO, "Security camera running");
             systemStatus.setText("System NORMAL");
             systemStatus.setFill(Color.valueOf("#3bff00"));
+            scRunning = true;
         } catch (Exception e) {
             CERBERUSLogger.log(Level.WARNING, Arrays.toString(e.getStackTrace()));
             systemStatus.setText("System ERROR");
             systemStatus.setFill(Color.RED);
             disablePTZ();
         }
+//        if(scRunning) {
+//            stopMedia();
+//            playSecurityMedia();
+//        }
     }
 
     /* Camera functions */
@@ -152,6 +160,22 @@ public class MonitorController {
         sc.moveCamera(4);
     }
 
+    public void panLeftUp() {
+        sc.moveCamera(7);
+    }
+
+    public void panLeftDown() {
+        sc.moveCamera(8);
+    }
+
+    public void panRightUp() {
+        sc.moveCamera(9);
+    }
+
+    public void panRightDown() {
+        sc.moveCamera(10);
+    }
+
     public void zoomOutCamera() {
         sc.moveCamera(5);
     }
@@ -164,7 +188,7 @@ public class MonitorController {
         sc.stopCamera();
     }
 
-    private void disablePTZ() {
+    public void disablePTZ() {
         toggleView.setDisable(true);
         forwardTilt.setDisable(true);
         backwardTilt.setDisable(true);
@@ -175,6 +199,10 @@ public class MonitorController {
         showDisabledCameraBtns.setVisible(true);
         showDisabledCameraBtns.toFront();
         connectCameras.setVisible(true);
+//        if(execptE) {
+//            systemStatus.setText("System ERROR");
+//            systemStatus.setFill(Color.RED);
+//        }
     }
 
     private void enablePTZ() {
@@ -187,7 +215,7 @@ public class MonitorController {
         zoomOut.setDisable(false);
         showDisabledCameraBtns.setVisible(false);
         showDisabledCameraBtns.toBack();
-//        connectCameras.setVisible(false);
+        connectCameras.setVisible(false);
     }
 
     private void playSecurityMedia() {

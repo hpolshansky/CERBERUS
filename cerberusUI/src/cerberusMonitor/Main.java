@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.net.InetAddress;
 import java.util.logging.Level;
 
 public class Main extends Application {
@@ -37,15 +38,15 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         CERBERUSLogger.log(Level.INFO, CERBERUSLogger.class.getName()+" has started successfully.");
-//        try {
-//            // use server IP Address
-////            IPAddress ip = new IPAddress();
-//
-//            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
-//            c.start(c);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+            // use server IP Address
+//            IPAddress ip = new IPAddress();
+
+            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
+            c.start(c);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //        new Notifier("No server connected. Some functionality may be disabled.\n" +
 //                "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
         launch(args);
