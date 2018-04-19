@@ -1,16 +1,12 @@
 package cerberusMonitor;
 
-import sun.security.ssl.Debug;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Arrays;
-import java.util.Scanner;
-import java.util.Timer;
+
 import static cerberusMonitor.Main.monitorController;
 
 // modeled from: https://www.pegaxchange.com/2017/12/07/simple-tcp-ip-server-client-java/
@@ -46,6 +42,7 @@ public class Client implements Runnable {
 
                 System.out.println("Recv: " + Arrays.toString(getInput()));
                 if(getInput()[0] == 0) {
+                    System.out.println("UHOH");
                     // set FXML to show disconnection
                     monitorController.serverStatus(false);
                     // close server port and this client

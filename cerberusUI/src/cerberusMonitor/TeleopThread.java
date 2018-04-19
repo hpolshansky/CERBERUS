@@ -1,12 +1,10 @@
 package cerberusMonitor;
 
-//import purejavahidapi.HidDevice;
-//import purejavahidapi.HidDeviceInfo;
-//import purejavahidapi.PureJavaHidApi;
 import purejavahidapi.HidDevice;
 import purejavahidapi.HidDeviceInfo;
 import purejavahidapi.PureJavaHidApi;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -55,10 +53,10 @@ public class TeleopThread implements Runnable {
                             tx_data[3] = (byte)(data[7]+128);
                             COBS encoder = new COBS();
                             byte[] msg = encoder.Encode(tx_data);
-//                            System.out.printf(Arrays.toString(tx_data));
+                            System.out.printf(Arrays.toString(tx_data));
                             Message.setMsg(msg);
 
-                            controlCameraPan(data[10], data[11]);
+//                            controlCameraPan(data[10], data[11]);
                             System.out.println();
                         });
                     }

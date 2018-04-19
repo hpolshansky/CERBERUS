@@ -42,7 +42,7 @@ public class Main extends Application {
             // use server IP Address
 //            IPAddress ip = new IPAddress();
 
-            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2000"));
+            Client c = new Client(InetAddress.getByName("192.168.1.66"), Integer.parseInt("2001"));
             c.start(c);
         } catch (Exception e) {
             e.printStackTrace();

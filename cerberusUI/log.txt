@@ -674,3 +674,127 @@ Apr 19, 2018 12:20:05 AM cerberusMonitor.CERBERUSLogger log
 INFO: Teleoperation has started
 Apr 19, 2018 12:20:05 AM cerberusMonitor.CERBERUSLogger log
 INFO: Gamepad device found purejavahidapi.windows.HidDeviceInfo@92ede6f
+Apr 19, 2018 2:48:11 AM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 2:48:15 AM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 2:55:21 AM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 2:55:25 AM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 3:06:48 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:06:52 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 3:07:12 PM cerberusMonitor.CERBERUSLogger log
+INFO: Teleoperation has started
+Apr 19, 2018 3:10:31 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:10:36 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 3:12:18 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:12:55 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:15:26 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:15:39 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:17:20 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:17:33 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:17:36 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 3:18:52 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:18:56 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 3:22:07 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:22:11 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 3:30:02 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 3:30:06 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 4:28:30 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 4:28:34 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 4:28:47 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 4:28:50 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 4:35:47 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 4:35:51 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 4:36:05 PM cerberusMonitor.CERBERUSLogger log
+WARNING: Server is disconnected
+Apr 19, 2018 4:36:57 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 4:37:01 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 4:37:12 PM cerberusMonitor.CERBERUSLogger log
+WARNING: Server is disconnected
+Apr 19, 2018 4:39:26 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 4:39:30 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 4:43:20 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 4:43:22 PM cerberusMonitor.CERBERUSLogger log
+WARNING: [de.onvif.soap.OnvifDevice.<init>(OnvifDevice.java:75), cerberusMonitor.SecurityCamera.<init>(SecurityCamera.java:24), cerberusMonitor.MonitorController.connectCamera(MonitorController.java:126), cerberusMonitor.MonitorController.initialize(MonitorController.java:50), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71), sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275), javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2566), javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425), cerberusMonitor.Main.start(Main.java:19), com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863), com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326), com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295), java.security.AccessController.doPrivileged(Native Method), com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294), com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95), com.sun.glass.ui.win.WinApplication._runLoop(Native Method), com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177), java.lang.Thread.run(Thread.java:748)]
+Apr 19, 2018 4:43:22 PM cerberusMonitor.CERBERUSLogger log
+WARNING: [cerberusMonitor.SecurityCamera.<init>(SecurityCamera.java:31), cerberusMonitor.MonitorController.connectCamera(MonitorController.java:126), cerberusMonitor.MonitorController.initialize(MonitorController.java:50), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71), sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275), javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2566), javafx.fxml.FXMLLoader.load(FXMLLoader.java:2425), cerberusMonitor.Main.start(Main.java:19), com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$161(LauncherImpl.java:863), com.sun.javafx.application.PlatformImpl.lambda$runAndWait$174(PlatformImpl.java:326), com.sun.javafx.application.PlatformImpl.lambda$null$172(PlatformImpl.java:295), java.security.AccessController.doPrivileged(Native Method), com.sun.javafx.application.PlatformImpl.lambda$runLater$173(PlatformImpl.java:294), com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95), com.sun.glass.ui.win.WinApplication._runLoop(Native Method), com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177), java.lang.Thread.run(Thread.java:748)]
+Apr 19, 2018 4:43:35 PM cerberusMonitor.CERBERUSLogger log
+WARNING: [de.onvif.soap.OnvifDevice.<init>(OnvifDevice.java:75), cerberusMonitor.SecurityCamera.<init>(SecurityCamera.java:24), cerberusMonitor.MonitorController.connectCamera(MonitorController.java:126), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71), sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275), javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1771), javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1657), com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86), com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238), com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191), com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59), com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58), com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56), com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56), com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74), com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54), javafx.event.Event.fireEvent(Event.java:198), javafx.scene.Scene$ClickGenerator.postProcess(Scene.java:3470), javafx.scene.Scene$ClickGenerator.access$8100(Scene.java:3398), javafx.scene.Scene$MouseHandler.process(Scene.java:3766), javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485), javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762), javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494), com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394), com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295), java.security.AccessController.doPrivileged(Native Method), com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432), com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389), com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431), com.sun.glass.ui.View.handleMouseEvent(View.java:555), com.sun.glass.ui.View.notifyMouse(View.java:937), com.sun.glass.ui.win.WinApplication._runLoop(Native Method), com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177), java.lang.Thread.run(Thread.java:748)]
+Apr 19, 2018 4:43:35 PM cerberusMonitor.CERBERUSLogger log
+WARNING: [cerberusMonitor.SecurityCamera.<init>(SecurityCamera.java:31), cerberusMonitor.MonitorController.connectCamera(MonitorController.java:126), sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method), sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71), sun.reflect.GeneratedMethodAccessor1.invoke(Unknown Source), sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.lang.reflect.Method.invoke(Method.java:498), sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275), javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1771), javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1657), com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86), com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:238), com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191), com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59), com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58), com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56), com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56), com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114), com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74), com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54), javafx.event.Event.fireEvent(Event.java:198), javafx.scene.Scene$ClickGenerator.postProcess(Scene.java:3470), javafx.scene.Scene$ClickGenerator.access$8100(Scene.java:3398), javafx.scene.Scene$MouseHandler.process(Scene.java:3766), javafx.scene.Scene$MouseHandler.access$1500(Scene.java:3485), javafx.scene.Scene.impl_processMouseEvent(Scene.java:1762), javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2494), com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:394), com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:295), java.security.AccessController.doPrivileged(Native Method), com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$353(GlassViewEventHandler.java:432), com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:389), com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:431), com.sun.glass.ui.View.handleMouseEvent(View.java:555), com.sun.glass.ui.View.notifyMouse(View.java:937), com.sun.glass.ui.win.WinApplication._runLoop(Native Method), com.sun.glass.ui.win.WinApplication.lambda$null$147(WinApplication.java:177), java.lang.Thread.run(Thread.java:748)]
+Apr 19, 2018 4:43:45 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 4:44:47 PM cerberusMonitor.CERBERUSLogger log
+INFO: Teleoperation has started
+Apr 19, 2018 4:45:06 PM cerberusMonitor.CERBERUSLogger log
+INFO: Teleoperation has started
+Apr 19, 2018 5:12:04 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 5:12:08 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 5:12:19 PM cerberusMonitor.CERBERUSLogger log
+INFO: Teleoperation has started
+Apr 19, 2018 5:25:22 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 5:25:27 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 5:25:46 PM cerberusMonitor.CERBERUSLogger log
+WARNING: Server is disconnected
+Apr 19, 2018 5:25:55 PM cerberusMonitor.CERBERUSLogger log
+INFO: Teleoperation has started
+Apr 19, 2018 5:29:21 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 5:30:45 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 5:30:50 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 5:31:11 PM cerberusMonitor.CERBERUSLogger log
+INFO: Teleoperation has started
+Apr 19, 2018 5:31:24 PM cerberusMonitor.CERBERUSLogger log
+INFO: Gamepad device found purejavahidapi.windows.HidDeviceInfo@57d200bc
+Apr 19, 2018 5:33:02 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 5:33:06 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 5:33:11 PM cerberusMonitor.CERBERUSLogger log
+INFO: Teleoperation has started
+Apr 19, 2018 5:33:11 PM cerberusMonitor.CERBERUSLogger log
+INFO: Gamepad device found purejavahidapi.windows.HidDeviceInfo@5c24c194
+Apr 19, 2018 5:34:06 PM cerberusMonitor.CERBERUSLogger log
+INFO: cerberusMonitor.CERBERUSLogger has started successfully.
+Apr 19, 2018 5:34:10 PM cerberusMonitor.CERBERUSLogger log
+INFO: Security camera running
+Apr 19, 2018 5:34:15 PM cerberusMonitor.CERBERUSLogger log
+INFO: Teleoperation has started
+Apr 19, 2018 5:34:15 PM cerberusMonitor.CERBERUSLogger log
+INFO: Gamepad device found purejavahidapi.windows.HidDeviceInfo@169285e6

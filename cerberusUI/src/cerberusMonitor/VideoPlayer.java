@@ -70,7 +70,7 @@ public class VideoPlayer extends BorderPane {
      *
      * @param title camera name
      */
-    public VideoPlayer(String title) {
+    public VideoPlayer(String title) throws ClassNotFoundException {
 
         List<String> arguments = new ArrayList<String>();
 

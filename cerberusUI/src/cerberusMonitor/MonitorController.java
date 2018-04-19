@@ -17,12 +17,13 @@ import java.util.logging.Level;
 
 public class MonitorController {
     private Boolean open = false;
+    private boolean scRunning = false;
     private String themeColor;
     private VideoPlayer player;
     private Stage settingsStage = new Stage();
     private Stage teleopStage = new Stage();
     private Stage mapStage = new Stage();
-    protected SecurityCamera sc; // = new SecurityCamera();;
+    private SecurityCamera sc; // = new SecurityCamera();;
     public Button teleop;
     public Button retrieveData;
     public Button settings;
@@ -104,7 +105,7 @@ public class MonitorController {
     }
 
     // changes the camera views
-    public void switchCamera() {
+    public void switchCamera() throws ClassNotFoundException {
         if(securityCamera.isVisible()) {
             stopMedia();
             securityCamera.setVisible(false);
@@ -121,7 +122,6 @@ public class MonitorController {
 
     // tries to connect to camera
     public void connectCamera() {
-        boolean scRunning = false;
         try {
             sc = new SecurityCamera();
             securityCamera.setVisible(true);
@@ -136,10 +136,6 @@ public class MonitorController {
             systemStatus.setFill(Color.RED);
             disablePTZ();
         }
-//        if(scRunning) {
-//            stopMedia();
-//            playSecurityMedia();
-//        }
     }
 
     /* Camera functions */
@@ -188,7 +184,7 @@ public class MonitorController {
         sc.stopCamera();
     }
 
-    public void disablePTZ() {
+    private void disablePTZ() {
         toggleView.setDisable(true);
         forwardTilt.setDisable(true);
         backwardTilt.setDisable(true);
@@ -218,7 +214,7 @@ public class MonitorController {
         connectCameras.setVisible(false);
     }
 
-    private void playSecurityMedia() {
+    private void playSecurityMedia() throws ClassNotFoundException {
         player = new VideoPlayer("Security Camera (PTZ)");
         securityCamera.getChildren().add(player);
         player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
@@ -226,11 +222,11 @@ public class MonitorController {
     }
 
     // TODO: get ZED camera on there
-    private void playZedMedia() {
-        player = new VideoPlayer("Zed (Fixed)");
-        securityCamera.getChildren().add(player);
-        player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
-        player.setVolume(1);
+    private void playZedMedia() throws ClassNotFoundException {
+//        player = new VideoPlayer("Zed (Fixed)");
+//        securityCamera.getChildren().add(player);
+//        player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
+//        player.setVolume(1);
     }
 
     public void stopMedia() {
