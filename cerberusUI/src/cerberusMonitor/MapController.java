@@ -1,14 +1,8 @@
 package cerberusMonitor;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class MapController {
     public Pane rosMap;
@@ -16,8 +10,6 @@ public class MapController {
     public Button submitMap;
     public  Button resetMap;
     private int flag = 0;
-    private double x_loc;
-    private double y_loc;
 
     public void checkSteps() {
         // get mouse click xy position
@@ -28,8 +20,8 @@ public class MapController {
 //                y_loc = event.getY();
 //            }
 //        });
-        x_loc = 550;
-        y_loc = 200;
+        double x_loc = 550;
+        double y_loc = 200;
         if(flag == 0) setPosition(x_loc, y_loc);
         else if(flag == 1) setDirection(x_loc, y_loc);
     }
@@ -47,7 +39,7 @@ public class MapController {
     }
 
     // sends instructions to CERBERUS and notifies user
-    public void checkSent() throws IOException {
+    public void checkSent() {
         // send instructions to CERBERUS
         // have waiting symbol to show user
 

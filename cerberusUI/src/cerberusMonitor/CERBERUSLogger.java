@@ -5,7 +5,6 @@ import java.util.logging.*;
 
 public class CERBERUSLogger {
     private static Logger logger;
-    private SimpleFormatter plainText = new SimpleFormatter();
 
     public CERBERUSLogger() throws IOException{
         //instance the logger
@@ -13,6 +12,7 @@ public class CERBERUSLogger {
         //instance the filehandler
         Handler fileHandler = new FileHandler("log.txt", true);
         //instance formatter, set formatting, and handler
+        SimpleFormatter plainText = new SimpleFormatter();
         fileHandler.setFormatter(plainText);
         logger.addHandler(fileHandler);
     }
@@ -30,6 +30,5 @@ public class CERBERUSLogger {
 
     public static void log(Level level, String msg){
         getLogger().log(level, msg);
-        System.out.println(msg);
     }
 }

@@ -6,7 +6,6 @@ import javax.xml.soap.SOAPException;
 import java.net.ConnectException;
 
 public class SecurityCamera {
-    private OnvifDevice nvt;
     private String pToken;
     private PtzDevices ptzDevices;
     private String hostIp = "192.168.1.10:8899";
@@ -19,7 +18,7 @@ public class SecurityCamera {
 //        this.user = user;
 //        this.pass = pass;
         try {
-            nvt = new OnvifDevice(hostIp, user, pass);
+            OnvifDevice nvt = new OnvifDevice(hostIp, user, pass);
             pToken = nvt.getDevices().getProfiles().get(0).getToken();
             ptzDevices = nvt.getPtz();
         } catch (ConnectException | SOAPException e) {

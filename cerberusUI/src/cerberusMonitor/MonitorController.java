@@ -4,7 +4,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -27,8 +26,8 @@ public class MonitorController {
     public Button teleop;
     public Button retrieveData;
     public Button settings;
-    public ToggleButton toggleView;
-    public Text connection;
+    public Button toggleView;
+    public Button connectCameras;
     public ImageView bg;
     public ImageView menu;
     public ImageView forwardTilt;
@@ -41,21 +40,13 @@ public class MonitorController {
     public GridPane securityCamera;
     public GridPane zedCamera;
     public Text systemStatus;
+    public Text connection;
 
-
-
+    
     // initialize func
     public void initialize() {
         System.out.println("Initializing");
-        try {
-            securityCamera.setVisible(true);
-            playSecurityMedia();
-        } catch (Exception e) {
-            CERBERUSLogger.log(Level.WARNING, Arrays.toString(e.getStackTrace()));
-            systemStatus.setText("System Error");
-            systemStatus.setFill(Color.RED);
-            disablePTZ();
-        }
+        connectCamera();
         // put this on top
 //        new Notifier("No server connected. Some functionality may be disabled.\n" +
 //                "You are not connected to our server, Professor Stafford.", "No Connection", 2500);
@@ -67,12 +58,13 @@ public class MonitorController {
     // download log file and video?? from server
     public void retrieveData() {
 //        new Notifier("This would retrieve data from CERBERUS if one was connected", "Retrieve Data", 0);
+        enablePTZ();
     }
 
-    // Estimates battery life TODO
-    public void batteryLifeEstimation() {
-
-    }
+    // TODO Estimates battery life
+//    public void batteryLifeEstimation() {
+//
+//    }
 
     public void menuClicked() {
         System.out.println("PRESSED");
@@ -81,7 +73,7 @@ public class MonitorController {
             btnVisible(true);
             open = true;
         }
-        else if(open) {
+        else {
             // close/make invisible buttons
             btnVisible(false);
             open = false;
@@ -125,6 +117,23 @@ public class MonitorController {
         }
     }
 
+    // tries to connect to camera
+    public void connectCamera() {
+        try {
+            securityCamera.setVisible(true);
+            playSecurityMedia();
+            enablePTZ();
+            CERBERUSLogger.log(Level.INFO, "Security camera running");
+            systemStatus.setText("System NORMAL");
+            systemStatus.setFill(Color.valueOf("#3bff00"));
+        } catch (Exception e) {
+            CERBERUSLogger.log(Level.WARNING, Arrays.toString(e.getStackTrace()));
+            systemStatus.setText("System ERROR");
+            systemStatus.setFill(Color.RED);
+            disablePTZ();
+        }
+    }
+
     /* Camera functions */
 
     public void panLeft() {
@@ -155,7 +164,7 @@ public class MonitorController {
         sc.stopCamera();
     }
 
-    public void disablePTZ() {
+    private void disablePTZ() {
         toggleView.setDisable(true);
         forwardTilt.setDisable(true);
         backwardTilt.setDisable(true);
@@ -164,9 +173,11 @@ public class MonitorController {
         zoomIn.setDisable(true);
         zoomOut.setDisable(true);
         showDisabledCameraBtns.setVisible(true);
+        showDisabledCameraBtns.toFront();
+        connectCameras.setVisible(true);
     }
 
-    public void enablePTZ() {
+    private void enablePTZ() {
         toggleView.setDisable(false);
         forwardTilt.setDisable(false);
         backwardTilt.setDisable(false);
@@ -175,9 +186,11 @@ public class MonitorController {
         zoomIn.setDisable(false);
         zoomOut.setDisable(false);
         showDisabledCameraBtns.setVisible(false);
+        showDisabledCameraBtns.toBack();
+//        connectCameras.setVisible(false);
     }
 
-    public void playSecurityMedia() {
+    private void playSecurityMedia() {
         player = new VideoPlayer("Security Camera (PTZ)");
         securityCamera.getChildren().add(player);
         player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
@@ -185,7 +198,7 @@ public class MonitorController {
     }
 
     // TODO: get ZED camera on there
-    public void playZedMedia() {
+    private void playZedMedia() {
         player = new VideoPlayer("Zed (Fixed)");
         securityCamera.getChildren().add(player);
         player.play("rtsp://192.168.1.10:554/user=admin&password=&channel=1&stream=0.sdp");
@@ -260,12 +273,16 @@ public class MonitorController {
 
     // closes pop up stages created by the monitor
     public void closePopUpStage(String stage) {
-        if (stage.equals("Settings")) {
-            settingsStage.close();
-        } else if (stage.equals("Map")) {
-            mapStage.close();
-        } else if (stage.equals("Teleop")) {
-            teleopStage.close();
+        switch (stage) {
+            case "Settings":
+                settingsStage.close();
+                break;
+            case "Map":
+                mapStage.close();
+                break;
+            case "Teleop":
+                teleopStage.close();
+                break;
         }
     }
 

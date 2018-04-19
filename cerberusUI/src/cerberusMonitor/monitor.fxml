@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -76,12 +75,6 @@
                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
            </rowConstraints>
        </GridPane>
-
-
-      <ToggleButton fx:id="toggleView" disable="true" layoutX="820.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="30.0" prefWidth="180.0" text="Switch Camera">
-         <font>
-            <Font size="22.0" />
-         </font></ToggleButton>
       <Text id="diag" fill="#eaff00" layoutX="859.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Battery: 50%" visible="false" wrappingWidth="126.99998264721944" />
       <Text fill="#eaff00" layoutX="836.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated Battery Life:" wrappingWidth="162.00001645088196">
          <font>
@@ -101,6 +94,7 @@
             <Image url="@../resources/target_robot.png" />
          </image>
       </ImageView>
+       <Circle fill="#8a8a8a70" layoutX="905.0" layoutY="345.0" radius="87.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
       <ImageView fx:id="backwardTilt" fitHeight="150.0" fitWidth="95.0" layoutX="858.0" layoutY="358.0" onMousePressed="#panDown" onMouseReleased="#stopCamera" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/ic_keyboard_arrow_down_white_36dp/web/ic_keyboard_arrow_down_white_36dp_2x.png" />
@@ -136,7 +130,10 @@
             <Font name="Courier New" size="20.0" />
          </font>
       </Text>
-      <Circle fx:id="showDisabledCameraBtns" fill="#8a8a8a70" layoutX="907.0" layoutY="349.0" radius="87.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Circle fx:id="showDisabledCameraBtns" fill="#8a8a8a70" layoutX="905.0" layoutY="345.0" radius="87.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+      <Button fx:id="teleop1" layoutX="114.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#control" prefHeight="45.0" styleClass="std_btn" text="Teleoperation" visible="false" />
+      <Button fx:id="connectCameras" layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onMouseClicked="#connectCamera" prefHeight="45.0" styleClass="std_btn" text="Connect cameras" visible="false" />
+      <Button fx:id="toggleView" layoutX="817.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#switchCamera" prefHeight="45.0" styleClass="std_btn" text="Switch Camera" />
    </children>
 <!--</VBox>-->
 </Pane>
